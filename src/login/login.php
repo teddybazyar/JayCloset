@@ -5,7 +5,7 @@
 
 // The code below can be changed if needed.
 
-if(is_array($result) && count ($result) >0) {
+if (is_array($result) && count ($result) > 0) {
     $_SESSION["LoginStatus"]="YES";
     $_SESSION["UserID"]=$result[0]["userID"];
     $_SESSION["Name"]=$result[0]["firstName"]." ".result[0]["lastName"];
