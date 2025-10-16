@@ -1,0 +1,27 @@
+1. A student by the name of Izzy has a job interview coming up. Unfortunately, she does not have any of her professional
+attire here at College with her. She is also a college student, so she is broke. The economy is hard now. So, she cannot
+go to her job interview with a tank top and jeans, so she needs an alternative. Luckily, at Elizabethtown College, we 
+have a Career closet that has tons of professioal and business attire clothing. Lucky for her, she can go. But, the times
+that the career closet is open, she is busy and she does not know what the career closet offers. Hah, lucky for her again,
+there is the JayCloset, which is the online page that contains all clothing that the Career Closet holds. She is able to 
+login during her free time to the website and browse at what all different clothing pieces the career closet holds and 
+is available to take. She is worried about sizes and colors, but luckily for her, the website has sizes and colors, as 
+well as the picture of the article of clothing. So she is able to find what she needs and place an "order" of all that
+she reserves. Then, an employee at the career closet desk, will then get the order and prepare it for pickup. Izzy is 
+then able to go pick up her order and she is now ready for her interview! Using this website, she was able to pick up
+her business attire clothing and she got the job!
+
+2. The career closet employee, Brandon, needs to add new clothing that have come in. Using the admin interface, he is 
+able to add the clothing, description, size, color, and a picture.
+
+3. Mrs. Zegers has a student who came up to her in her professioal development seminar who is in need of some business
+attire. So she recommends the JayCloset to him for him to browse. 
+
+4. There has been a massive donation sent. Brandon, a Career closet employee cannot put all attire in by himself in one
+day. So Betty rider, decides to help him out. Both Brandon and Betty put in all articles of clothing into the website
+together at the same time. 
+
+5. Jonathan is in a SCAD presentation that is coming up. He is a graphic design major and he does not own any business
+attire. His presentation is tomorrow and he does not have a car so he cant go and buy. So he checks out the JayCloset
+to see what they have. He is able to find attire that match his size and preference and is able to go pick it up quickly.
+He is now ready for SCAD and does a great job presentating, professionally.
