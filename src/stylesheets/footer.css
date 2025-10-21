@@ -1,0 +1,16 @@
+footer {
+    background-color: #c6dbef;
+
+    display: flex;
+    padding: 20px;
+    width: 100%;
+    margin-top: auto;
+
+    font-family: Arial, Helvetica, sans-serif;
+    
+    text-align: center;
+    flex-direction: column;
+    justify-content: center;  /* centers vertically inside footer */
+    align-items: center;      /* centers horizontally inside footer */
+    
+}

@@ -1,0 +1,40 @@
+/* navbar container */
+nav {
+    display: flex;
+    justify-content: flex-end;
+    background-color: #c6dbef;
+    padding: 20px;
+
+}
+
+/* Remove bullets, align links horizontaly */
+nav ul {
+    list-style: none;  /* removes bullet points */
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;                  /* space between links */
+    margin: 0;
+    padding: 0 40px;
+}
+
+/* Link styling */
+nav a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    transition: color 0.2s ease;
+}
+
+nav ul li {
+  margin: 0 15px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}
+
+nav ul li a:hover {
+  color: #007BFF;
+}
