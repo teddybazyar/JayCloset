@@ -16,6 +16,6 @@ class MainPageContent{
     }
 }
 
-$extraStyleSheets = ["stylesheets/index_about.css"];
+$extraStyleSheets = ["style.css"];
 
 ?>

@@ -14,9 +14,11 @@ $footer =new Footer("Jay Closet 2025");
 <!DOCTYPE html>
 <html lang='en'>
   <head>
-    <link rel="stylesheet" href="stylesheets/navbar.css">
+    
+  <link rel="stylesheet" href="../style.css">
+    <!-- <link rel="stylesheet" href="stylesheets/navbar.css">
     <link rel="stylesheet" href="stylesheets/index_about.css">
-    <link rel="stylesheet" href="stylesheets/footer.css">
+    <link rel="stylesheet" href="stylesheets/footer.css"> -->
     <title> About - Jay Closet </title>
   </head>
   

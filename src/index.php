@@ -35,9 +35,10 @@ switch ($page) {
 <head>
     <meta charset="UTF-8">
     <title><?php echo htmlspecialchars($title); ?></title>
-    <link rel="stylesheet" href="stylesheets/navbar.css">
+    <link rel="stylesheet" href="../style.css">
+    <!-- <link rel="stylesheet" href="stylesheets/navbar.css">
     <link rel="stylesheet" href="stylesheets/footer.css">
-    <link rel="stylesheet" href="stylesheets/index_about.css">
+    <link rel="stylesheet" href="stylesheets/index_about.css"> -->
 
 </head>
 <body>
