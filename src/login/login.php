@@ -1,20 +1,32 @@
 <?php
 
-// This section will check and report any warnings, it will include user
-// and password information, and param the queries to prevent any SQLi.
+ini_set('display_errors', 1);
+error_reporting(E_ALL & ~E_NOTICE);
+session_start();
 
-// The code below can be changed if needed.
+$u = $_POST["user"];
+$p = $_POST["pass"];
+
+$sql = "SELECT * FROM users where email = :u and password = MD5(CONCAT('hacker', :p, 'begone'))";
+$params = [":u"=>$u, ":p"=>$p];
+
+require_once "../includes/database_functions.php";
+$result = getDataFromSQL($sql, $params);
 
 if (is_array($result) && count ($result) > 0) {
     $_SESSION["LoginStatus"]="YES";
     $_SESSION["UserID"]=$result[0]["userID"];
-    $_SESSION["Name"]=$result[0]["firstName"]." ".result[0]["lastName"];
+    $_SESSION["Name"]=$result[0]["firstName"]." ".$result[0]["lastName"];
     $_SESSION["email"]=$result[0]["email"];
     $_SESSION["ADMIN"]=$result[0]["admin"];
+}else{
+    echo "not correct password";
+    $_SESSION["LoginStatus"]="NO";
+    $_SESSION["UserID"]="";
+    $_SESSION["Name"]="";
+    $_SESSION["email"]="";
+
+    header("Location: ../index.php");
+    exit;
 }
-
-// If we have time, we can include profile pictures
-// and we will also param the queries to prevent any SQLi.
-
-// Here, there will be a way to check if the user has already made an
-// account and if their password is typed in correctly or incorrectly.
+?>
