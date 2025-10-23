@@ -33,32 +33,31 @@ $footer =new Footer("Jay Closet 2025");
             </p>
           </div>     
           <div class="team-members">
-            <div class="member1">
-              <h2> Teddy Bazyar </h2>
-               <p> <img src="" alt="" width="300" height="250"> Insert bio here</p>
-            </div>
-            <br>
-            <br>
-            <div class="member2">
-              <h2> Isabella Edwards </h2>
-              <p> <img src="/JayCloset/images/Teams&Logo/Edwards_Isabella.JPG" alt="" width="300" height="250"> Insert bio here</p>
-            </div>
-            <br>
-            <br>
-            <div class="member3">
-              <h2> Isabella La Face </h2>
+            <div class="card">
               <p> <img src="" alt="" width="300" height="250"> Insert bio here</p>
+              <h2> Teddy Bazyar </h2>
             </div>
             <br>
             <br>
-            <div class="member4">
-              <h2> Kylie(Kanade) Ueda </h2>
+            <div class="card">
+              <p> <img src="/JayCloset/images/Teams&Logo/Edwards_Isabella.JPG" alt="" width="300" height="250"> Insert bio here</p>
+              <h2> Isabella Edwards </h2>
+            </div>
+            <br>
+            <br>
+             <div class="card">
+              <p> <img src="" alt="" width="300" height="250"> Insert bio here</p>
+              <h2> Isabella La Face </h2>
+            </div>
+            <br>
+            <br>
+             <div class="card">
               <p> <img src="/JayCloset/images/Teams&Logo/kylie.png" alt="" width="300" height="250"> Insert bio here</p>
+              <h2> Kylie (Kanade) Ueda </h2>
             </div>
             <br>
             <br>
           </div>
-              
         </section>
     </main>
     <?php echo $footer->render(); ?>
