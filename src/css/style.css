@@ -96,3 +96,15 @@ div.container {
     text-align: top;
     padding: 10px 20px;
 }
+
+/* Login Page */
+.loginform {
+    background-color: rgba(0, 0, 0, 0);
+    box-shadow: 1px 2px 22px 0px rgba(89, 87, 87, 0.85);
+    float: right;
+    height: 250px;
+    border-radius: 30px;
+    padding: 20px;
+    margin-right: 200px;
+    margin-top: 100px;
+}
