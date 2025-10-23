@@ -29,7 +29,7 @@ $footer =new Footer("Jay Closet 2025");
           </div>
           <div class="p">
             <p>   
-            This JayCloset project was founded by four members from CS 341 Software Engineering class of Fall 2025.  
+            JayCloset was founded by four members from CS 341 Software Engineering class of Fall 2025. See below more info!
             </p>
           </div>     
           <div class="team-members">
@@ -52,7 +52,7 @@ $footer =new Footer("Jay Closet 2025");
             <br>
             <br>
              <div class="card">
-              <p> <img src="/JayCloset/images/Teams&Logo/kylie.png" alt="" width="300" height="250"> Insert bio here</p>
+              <p> <img src="/JayCloset/images/Teams&Logo/kylie.png" alt="" width="300" height="300"> Insert bio here</p>
               <h2> Kylie (Kanade) Ueda </h2>
             </div>
             <br>

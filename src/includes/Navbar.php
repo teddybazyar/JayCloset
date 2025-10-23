@@ -12,17 +12,34 @@
         }
 
         public function display() {
-            echo '<nav><ul>';
+            echo '<nav class="navbar">';
+
+            // Logo section
+            echo '  <div class="nav_logo">';
+
+            echo '      <a ref="index.php" class="logo">';
+            echo '          <img src="../images/Teams&Logo/JayClosetLogo.png"';
+            // 1064*598
+            echo '      </a>';
+            echo '  </div>';
+            echo '      <ul class="nav-links">';
+
+            // Links (Right)
             foreach ($this->links as $name => $data) {
-                echo '<li>';
-                echo '<a href="' . htmlspecialchars($data['url']) . '">';
-                echo '<i class="' . htmlspecialchars($data['icon']) . '"></i> ';
-                echo htmlspecialchars($name);
-                echo '</a></li>';
+                echo '      <li>';
+                echo '          <a href="' . htmlspecialchars($data['url']) . '">';
+                echo '          <i class="' . htmlspecialchars($data['icon']) . '"></i> ';
+                echo                htmlspecialchars($name);
+                echo '          </a>';
+                echo        '</li>';
+            }
+            echo '      </ul>';
+            // echo '    </div>';
+            echo '  </nav>';
         }
-        echo '</ul></nav>';
+        
     }
 
-    }
+    
 
 ?>
