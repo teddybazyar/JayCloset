@@ -46,7 +46,6 @@ nav ul li a:hover {
 
 .nav_logo img {
     display: flex;
-    /* justify-content: center; */
     padding-bottom: 15px;
     align-items: center; 
     height: 150px;
