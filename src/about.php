@@ -34,8 +34,8 @@ $footer =new Footer("Jay Closet 2025");
           </div>     
           <div class="team-members">
             <div class="card">
-              <p> <img src="" alt="" width="300" height="250"> Insert bio here</p>
-              <h2> Teddy Bazyar </h2>
+              <p> <img src="/JayCloset/images/Teams&Logo/teddy.jpg" alt="" width="300" height="270"> Insert bio here</p>
+              <h2> Teddy(Farnaz) Bazyar </h2>
             </div>
             <br>
             <br>
