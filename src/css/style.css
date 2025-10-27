@@ -102,15 +102,76 @@ body {
     padding-bottom: 50px;
 }
 
+/* Team layout: stack cards vertically, each card is a horizontal flex row */
+div.team-members {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    align-items: flex-start; 
+    margin-bottom: 48px; 
+    padding-left: 40px;
+}
+
 div.card {
     width: 80%;
+    max-width: 1000px;
     background-color: white;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    padding: 16px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start; 
+    gap: 20px;
+    margin-left: 0; 
 }
 
 div.container {
     text-align: top;
     padding: 10px 20px;
+}
+
+div.card-left {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    flex: 0 0 320px; 
+}
+
+div.card-left img {
+    width: 300px;
+    height: auto;
+    display: block;
+}
+
+div.card-left h2 {
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+div.card-right {
+    flex: 1 1 auto; 
+}
+
+div.card-right p {
+    margin: 0;
+}
+
+@media (max-width: 600px) {
+    div.card {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    div.card img {
+        width: 80%;
+        flex: none;
+    /* reduce left inset on small screens */
+    div.team-members {
+        padding-left: 12px;
+    }
+    }
 }
 
 /* Login Page */

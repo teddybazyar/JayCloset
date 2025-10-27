@@ -34,29 +34,44 @@ $footer =new Footer("Jay Closet 2025");
           </div>     
           <div class="team-members">
             <div class="card">
-              <p> <img src="/JayCloset/images/Teams&Logo/teddy.jpg" alt="" width="300" height="270"> Insert bio here</p>
-              <h2> Teddy(Farnaz) Bazyar </h2>
+              <div class="card-left">
+                <img src="/JayCloset/images/Teams&Logo/teddy.jpg" alt="Teddy" width="300" height="270">
+                <h2>Teddy (Farnaz) Bazyar</h2>
+              </div>
+              <div class="card-right">
+                <p>Insert bio here</p>
+              </div>
             </div>
-            <br>
-            <br>
+
             <div class="card">
-              <p> <img src="/JayCloset/images/Teams&Logo/Edwards_Isabella.JPG" alt="" width="300" height="250"> Insert bio here</p>
-              <h2> Isabella Edwards </h2>
+              <div class="card-left">
+                <img src="/JayCloset/images/Teams&Logo/Edwards_Isabella.JPG" alt="Isabella Edwards" width="300" height="250">
+                <h2>Isabella Edwards</h2>
+              </div>
+              <div class="card-right">
+                <p> Isabella is a Computer Science major with a concentration in Hardware. Her intended graduation date is May 2027, and hopes to help students! </p>
+              </div>
             </div>
-            <br>
-            <br>
-             <div class="card">
-              <p> <img src="" alt="" width="300" height="250"> Insert bio here</p>
-              <h2> Isabella La Face </h2>
+
+            <div class="card">
+              <div class="card-left">
+                <img src="/JayCloset/images/Teams&Logo/placeholder.png" alt="Isabella La Face" width="300" height="250">
+                <h2>Isabella La Face</h2>
+              </div>
+              <div class="card-right">
+                <p>Insert bio here</p>
+              </div>
             </div>
-            <br>
-            <br>
-             <div class="card">
-              <p> <img src="/JayCloset/images/Teams&Logo/kylie.png" alt="" width="300" height="300"> Insert bio here</p>
-              <h2> Kylie (Kanade) Ueda </h2>
+
+            <div class="card">
+              <div class="card-left">
+                <img src="/JayCloset/images/Teams&Logo/kylie.png" alt="Kylie Ueda" width="300" height="300">
+                <h2>Kylie (Kanade) Ueda</h2>
+              </div>
+              <div class="card-right">
+                <p>Insert bio here</p>
+              </div>
             </div>
-            <br>
-            <br>
           </div>
         </section>
     </main>
