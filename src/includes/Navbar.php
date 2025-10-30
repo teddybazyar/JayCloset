@@ -4,6 +4,7 @@
         private static $defaultNavLinks = [
             'Home' => ['url' => 'index.php', 'icon' => 'fas fa-home'],
             'About' => ['url' => 'about.php', 'icon' => 'fas fa-info-circle'],
+            'Closet' => ['url' => 'closet.php', 'icon' => 'fa fa-list'],
             'Login' => ['url' => 'index.php?page=login', 'icon' => 'fas fa-key']
         ];
 
