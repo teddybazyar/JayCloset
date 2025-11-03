@@ -55,7 +55,7 @@ $footer =new Footer("Jay Closet 2025");
 
             <div class="card">
               <div class="card-left">
-                <img src="/JayCloset/images/Teams&Logo/" alt="" width="300" height="250">
+                <img src="/JayCloset/images/Teams&Logo/Bella.jpg" alt="Isabella La Face" width="300" height="250">
                 <h2>Isabella La Face</h2>
               </div>
               <div class="card-right">
