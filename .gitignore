@@ -417,3 +417,6 @@ FodyWeavers.xsd
 *.msm
 *.msp
 db_cred.php
+
+# macOS system files
+.DS_Store
