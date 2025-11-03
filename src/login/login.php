@@ -1,16 +1,16 @@
 <?php
+require_once "includes/database_functions.php";
 
 ini_set('display_errors', 1);
 error_reporting(E_ALL & ~E_NOTICE);
 session_start();
 
-$u = $_POST["user"];
-$p = $_POST["pass"];
-
-$sql = "SELECT * FROM users where email = :u and password = MD5(CONCAT('hacker', :p, 'begone'))";
+$sql = "SELECT * FROM users where ID = :u and passwrd = :p;";
+$u = $_POST["ID"];
+$p = $_POST["passwrd"];
 $params = [":u"=>$u, ":p"=>$p];
 
-require_once "../includes/database_functions.php";
+
 $result = getDataFromSQL($sql, $params);
 
 if (is_array($result) && count ($result) > 0) {

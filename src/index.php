@@ -1,7 +1,6 @@
 <?php
 ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+error_reporting(E_ALL & ~E_NOTICE);
 
 session_start();
 
@@ -15,13 +14,20 @@ $title = 'Welcome to Jay Closet!'; // title for the tab
 
 $page = isset($_GET['page']) ? $_GET['page'] : 'welcome';
 
+// Handle page content
 switch ($page) {
     case 'welcome':
         $content = MainPageContent::render();
         break;
     case 'login':
-        // $content = LoginForm::render();
-        $content = "<main><h2>Login page coming soon!</h2></main>";
+        ob_start();
+        require_once __DIR__ . '/login/loginform.html';
+        $content = ob_get_clean();
+        break;
+    case 'create':
+        ob_start();
+        require_once __DIR__ . '/login/createform.php';
+        $content = ob_get_clean();
         break;
     default:
         $content = MainPageContent::render();
