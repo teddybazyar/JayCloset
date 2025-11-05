@@ -23,7 +23,7 @@ $footer =new Footer("Jay Closet 2025");
   <body>
     <?php $nav->display(); ?>
     <main>
-        <section>
+        <!-- <section> -->
           <div class="h1">
             <h1> Founding Team </h1>
           </div>
@@ -35,7 +35,7 @@ $footer =new Footer("Jay Closet 2025");
           <div class="team-members">
             <div class="card">
               <div class="card-left">
-                <img src="/JayCloset/images/Teams&Logo/teddy.jpg" alt="Teddy" width="300" height="270">
+                <img src="/JayCloset/images/Teams&Logo/teddy.jpg" alt="Teddy" class='profile-pic'>
                 <h2>Teddy (Farnaz) Bazyar</h2>
               </div>
               <div class="card-right">
@@ -45,7 +45,7 @@ $footer =new Footer("Jay Closet 2025");
 
             <div class="card">
               <div class="card-left">
-                <img src="/JayCloset/images/Teams&Logo/Edwards_Isabella.JPG" alt="Isabella Edwards" width="300" height="250">
+                <img src="/JayCloset/images/Teams&Logo/Edwards_Isabella.JPG" alt="Isabella Edwards" class='profile-pic'>
                 <h2>Isabella Edwards</h2>
               </div>
               <div class="card-right">
@@ -55,7 +55,7 @@ $footer =new Footer("Jay Closet 2025");
 
             <div class="card">
               <div class="card-left">
-                <img src="/JayCloset/images/Teams&Logo/Bella.jpg" alt="Isabella La Face" width="300" height="250">
+                <img src="/JayCloset/images/Teams&Logo/Bella.jpg" alt="Isabella La Face" class='profile-pic'>
                 <h2>Isabella La Face</h2>
               </div>
               <div class="card-right">
@@ -65,7 +65,7 @@ $footer =new Footer("Jay Closet 2025");
 
             <div class="card">
               <div class="card-left">
-                <img src="/JayCloset/images/Teams&Logo/kylie.png" alt="Kylie Ueda" width="300" height="300">
+                <img src="/JayCloset/images/Teams&Logo/kylie.png" alt="Kylie Ueda" class='profile-pic'>
                 <h2>Kylie (Kanade) Ueda</h2>
               </div>
               <div class="card-right">
@@ -75,7 +75,7 @@ $footer =new Footer("Jay Closet 2025");
               </div>
             </div>
           </div>
-        </section>
+        <!-- </section> -->
     </main>
     <?php echo $footer->render(); ?>
   </body>

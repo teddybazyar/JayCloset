@@ -114,15 +114,17 @@ div.team-members {
 
 div.card { /* also used for div in index home page */
     width: 80%;
-    max-width: 1000px;
+    max-width: 1200px;
     background-color: white;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    padding: 16px;
+    padding-right: 30px;
+    padding-top: 16px;
+    padding-left: 16px;
+    padding-bottom: 16px;
     box-sizing: border-box;
     display: flex;
     flex-direction: row;
-    align-items: flex-start; 
-    gap: 20px;
+    align-items: center; /* to put bio at the center */
     margin-left: 0; 
 }
 
@@ -140,9 +142,7 @@ div.card-left {
 }
 
 div.card-left img {
-    width: 300px;
-    height: auto;
-    display: block;
+    display: center;
 }
 
 div.card-left h2 {
@@ -280,6 +280,14 @@ included inside of specified width & height */
 .fade {
   animation-name: fade;
   animation-duration: 1.5s;
+}
+
+.team-members .profile-pic {
+  width: 250px !important;
+  height: 250px !important;
+  object-fit: cover !important;
+  border-radius: 8px;
+  display: block;
 }
 
 @keyframes fade {
