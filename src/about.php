@@ -69,7 +69,9 @@ $footer =new Footer("Jay Closet 2025");
                 <h2>Kylie (Kanade) Ueda</h2>
               </div>
               <div class="card-right">
-                <p>Insert bio here</p>
+                <p> Hello everyone! My name is Kylie, and I am a Computer Science major in the Class of 2027. I do not have a concentration, but I am particularly interested in AI and Data Science. </p>
+                <br>
+                <p>Coming from Japan with no prior experience in this field, I have faced many challenges since I came here. However, I am now enjoying my learning journey, and I hope to support others by sharing my experiences and growth along the way!</p>
               </div>
             </div>
           </div>
