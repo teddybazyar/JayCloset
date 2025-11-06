@@ -186,23 +186,6 @@ div.card-right p {
     margin-top: 100px;
 }
 
-.download-btn {
-  display: inline-block;
-  margin-top: 20px;
-  background-color: #0070ba;
-  color: white;
-  text-decoration: none;
-  padding: 12px 25px;
-  border-radius: 8px;
-  font-weight: 600;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.download-btn:hover {
-  background-color: #005c99;
-  transform: translateY(-2px);
-}
-
 /* index/home page */
 
 /* any padding & border added will be 
