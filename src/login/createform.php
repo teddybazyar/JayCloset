@@ -9,12 +9,18 @@
 <body>
     <div class="container">
         <h2>Create an Account</h2>
-        <form action="create.php" method="POST">
-            <label for="username">UserID:</label>
-            <input type="text" id="username" name="username" required>
+        <form action="login/create.php" method="POST">
+            <label for="id">Student ID:</label>
+            <input type="text" id="id" name="id" required>
 
             <label for="email">Email:</label>
             <input type="email" id="email" name="email" required>
+
+            <label for="fname">First name:</label>
+            <input type="fname" id="fname" name="fname" required>
+
+            <label for="lname">Last name:</label>
+            <input type="lname" id="lname" name="lname" required>
 
             <label for="password">Password:</label>
             <input type="password" id="password" name="password" required>
