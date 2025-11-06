@@ -117,10 +117,7 @@ div.card { /* also used for div in index home page */
     max-width: 1200px;
     background-color: white;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    padding-right: 30px;
-    padding-top: 16px;
-    padding-left: 16px;
-    padding-bottom: 16px;
+  padding: 16px;
     box-sizing: border-box;
     display: flex;
     flex-direction: row;
@@ -285,6 +282,7 @@ included inside of specified width & height */
   box-sizing: border-box;
   border-radius: 6px;
   box-shadow: 0 6px 12px rgba(0,0,0,0.75); /* simple, subtle shadow */
+  padding: 16px;
 }
 
 .row {
@@ -303,6 +301,7 @@ div.rounded-box {
   width: 700px;
   height: 500px;
   box-shadow: 0 6px 12px rgba(0,0,0,0.75); /* simple, subtle shadow */
+  padding: 16px;
 }
 
 div.right-leaning {
@@ -313,4 +312,5 @@ div.right-leaning {
   height: 200px;
   background: #C8C8C8;
   box-shadow: 0 6px 12px rgba(0,0,0,0.75); /* simple, subtle shadow */
+  padding: 16px;
 }
