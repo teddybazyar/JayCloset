@@ -112,7 +112,7 @@ div.team-members {
     padding-left: 40px;
 }
 
-div.card {
+div.card { /* also used for div in index home page */
     width: 80%;
     max-width: 1000px;
     background-color: white;
@@ -268,4 +268,22 @@ included inside of specified width & height */
 @keyframes fade {
   from {opacity: .4}
   to {opacity: 1}
+}
+
+.column {
+  flex: 0 0 calc(25% - 15px); /* four columns with room for gaps */
+  min-width: 200px;
+  height: 500px;
+  box-sizing: border-box;
+  border-radius: 6px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.75); /* simple, subtle shadow */
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap; 
+  gap: 20px; 
+  padding: 0 16px;
+  box-sizing: border-box;
+  justify-content: space-between; /* spreads columns across the row */
 }

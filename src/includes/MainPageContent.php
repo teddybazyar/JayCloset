@@ -39,7 +39,31 @@ class MainPageContent{
                 <span class="dot" onclick="currentSlide(2)"></span>
                 <span class="dot" onclick="currentSlide(3)"></span>
             </div>
-            <br>
+            <br> <br> <br> <br> <br>
+            <br> <br> <br> <br> <br>
+            <br> <br> <br> <br> <br>
+            <div class="card">
+              <p> Insert text here.</p>
+            </div>
+            <br> <br> <br> <br> <br>
+            <br> <br> <br> <br> <br>
+            <br> <br> <br> <br> <br>
+            <div class="row">
+            <div class="column" style="background-color:#aaa;">
+                <h2>Column 1</h2>
+                <p>Insert text.</p>
+            </div>
+            <div class="column" style="background-color:#bbb;">
+                <h2>Column 2</h2>
+                <p>Insert text.</p>
+            </div>
+            <div class="column" style="background-color:#ccc;">
+                <h2>Column 3</h2>
+                <p>Insert text.</p>
+            </div>
+            <br> <br> <br> <br> <br>
+            <br> <br> <br> <br> <br>
+            <br> <br> <br> <br> <br>
             </section>';
     }
 }

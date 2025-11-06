@@ -6,8 +6,8 @@
     <title>Document</title>
 </head>
 <body>
-    <script>
-  location.replace("https://jaycloset.etowndb.com/src/index.php")
+  <script>
+  /* location.replace("https://jaycloset.etowndb.com/src/index.php")*/
 </script>
 </body>
 </html>
