@@ -10,7 +10,7 @@
     <div class="container">
         <h2>Create an Account</h2>
         <form action="create.php" method="POST">
-            <label for="username">Username:</label>
+            <label for="username">UserID:</label>
             <input type="text" id="username" name="username" required>
 
             <label for="email">Email:</label>
