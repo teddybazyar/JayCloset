@@ -43,7 +43,7 @@ class MainPageContent{
             <br> <br> <br> <br> <br>
             <br> <br> <br> <br> <br>
             <div class="card">
-              <p> Insert text here.</p>
+              <p> about us and a little bit about the CS Department.</p>
             </div>
             <br> <br> <br> <br> <br>
             <br> <br> <br> <br> <br>
@@ -51,15 +51,27 @@ class MainPageContent{
             <div class="row">
             <div class="column" style="background-color:#aaa;">
                 <h2>Column 1</h2>
-                <p>Insert text.</p>
+                <p>item ex. 1.</p>
             </div>
             <div class="column" style="background-color:#bbb;">
                 <h2>Column 2</h2>
-                <p>Insert text.</p>
+                <p>item ex. 2.</p>
             </div>
             <div class="column" style="background-color:#ccc;">
                 <h2>Column 3</h2>
-                <p>Insert text.</p>
+                <p>item ex. 3.</p>
+            </div>
+            </div>
+            <br> <br> <br> <br> <br>
+            <br> <br> <br> <br> <br>
+            <br> <br> <br> <br> <br>
+            <div class="rounded-box">
+                <br>
+                <p> more about career closet and the purpose of the program.</p>
+            </div>
+            <div class = "right-leaning">
+                <br>
+                <p> picture of employee </p>
             </div>
             <br> <br> <br> <br> <br>
             <br> <br> <br> <br> <br>

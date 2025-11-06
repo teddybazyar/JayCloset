@@ -8,6 +8,6 @@
 <body>
   <script>
   /* location.replace("https://jaycloset.etowndb.com/src/index.php")*/
-</script>
+  </script>
 </body>
 </html>

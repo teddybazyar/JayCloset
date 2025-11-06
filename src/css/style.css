@@ -312,3 +312,22 @@ included inside of specified width & height */
   box-sizing: border-box;
   justify-content: space-between; /* spreads columns across the row */
 }
+
+div.rounded-box {
+  border-top-right-radius: 100px; 
+  border-bottom-right-radius: 250px;
+  background: #3DB5E6;
+  width: 700px;
+  height: 500px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.75); /* simple, subtle shadow */
+}
+
+div.right-leaning {
+  border-top-left-radius: 25px; 
+  border-bottom-left-radius: 25px;
+  float: right;
+  width: 800px;
+  height: 200px;
+  background: #C8C8C8;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.75); /* simple, subtle shadow */
+}
