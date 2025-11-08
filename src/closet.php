@@ -41,6 +41,8 @@ echo "<div class='h1'>$content</div>";
 					<img src='../images/items/missingImages.png' class='item-image'>
 					<h2>" . htmlspecialchars($row["description_of_item"]) . "</h2>
 				  	<p>Color: " . htmlspecialchars($row["color"]) . "</p>
+					<p>Size: " . htmlspecialchars($row["size"]) . "</p>
+					<p>Gender: " . htmlspecialchars($row["gender"]) . "</p>
 				  	<p>Availability: " . ($row["reserved"] == 1 ? "Reserved" : "Available") . "</p>
 				</div>";	// close .itembox
 		}
