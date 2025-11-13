@@ -41,14 +41,14 @@ $allItems = jayclosetdb::getDataFromSQL($getItemsSQL);
 
 <div class="main-content"> <!-- EVERYTHING inside MAIN will move right -->
 
-    <h1 style="text-align:center; padding:40px 0;">Closet</h1>
+    <h2>All Items</h2>
 
     <?php if (!empty($allItems)): ?>
         <div class="item-container">
             <?php foreach ($allItems as $row): ?>
                 <div class="itembox">
                     <img src="../images/items/missingImages.png" class="item-image">
-                    <h2><?= htmlspecialchars($row["description_of_item"]) ?></h2>
+                    <h3><?= htmlspecialchars($row["description_of_item"]) ?></h3>
                     <p>Color: <?= htmlspecialchars($row["color"]) ?></p>
                     <p>Size: <?= htmlspecialchars($row["size"]) ?></p>
                     <p>Gender: <?= htmlspecialchars($row["gender"]) ?></p>
