@@ -16,6 +16,7 @@ $footer =new Footer("Jay Closet 2025");
   <head>
   <!-- <link rel="icon" type="image/jpg" href="/JayCloset/images/images/Teams&Logo/Edwards_Isabella.JPG"/>  
   <link rel="icon" type="image/png" href="/JayCloset/images/images/Teams&Logo/kylie.png"/>  -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="css/style.css">
     <title> About - Jay Closet </title>
   </head>
@@ -32,6 +33,8 @@ $footer =new Footer("Jay Closet 2025");
             JayCloset was founded by four members from CS 341 Software Engineering class of Fall 2025. See below more info!
             </p>
           </div>     
+          <!-- TO-DO: Make Founding Team Smaller, add cards for student Employees and staff on top.. 
+           add space for their contact information.  -->
           <div class="team-members">
             <div class="card">
               <div class="card-left">
@@ -78,5 +81,8 @@ $footer =new Footer("Jay Closet 2025");
         <!-- </section> -->
     </main>
     <?php echo $footer->render(); ?>
+
+    <!-- Load mobile nav toggle script (same as index.php) -->
+    <script src="js/hamburger.js" defer></script>
   </body>
 </html>
