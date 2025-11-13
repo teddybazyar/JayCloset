@@ -1,7 +1,7 @@
 /* navbar */
 nav.navbar {
     background-color: #B4D1F8;
-    padding: 10px 40px;
+    padding: 5px 40px;
 }
 /* navbar container */
 nav {
@@ -463,3 +463,54 @@ div.right-leaning {
     display: block;
   }
 }
+
+  
+/* Search Side Bar */
+.sidenav {
+  display: flex;
+  flex-direction: column;
+  height: calc(100% - 80px);
+  width: 240px;
+  position: fixed;
+  top: 150px;
+  left: 0;
+  background-color: white;
+  padding-top: 20px;
+  padding-left: 20px;
+  border-right: 3px solid;
+  border-color: #c8c8c8;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 24px;
+  color: #0070ba;
+  display: block;
+}
+
+.sidenav a:hover {
+  color: #e1261c;
+}
+
+.main-content {
+  margin-left: 240px; 
+  font-size: 28px;
+  padding: 0px 10px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+/* 
+color code:
+red #e1261c 
+navy #0a2240
+blue #004b98
+light blue #3db5e6
+dull blue #b4d1f8
+dull red(pink) #f0928d
+gray #c8c8c8
+*/
