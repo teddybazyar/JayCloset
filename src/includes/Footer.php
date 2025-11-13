@@ -19,8 +19,7 @@
 
         public function render() {
 
-            return "<footer><p>{$this->text}<br><br>{$this->links}</p></footer>"
-                . "\n<script src=\"/JayCloset/src/js/slideshow.js\"></script>";
+            return "<footer><p>{$this->text}<br><br>{$this->links}</p></footer>";
 
         }
 

@@ -117,10 +117,7 @@ div.card { /* also used for div in index home page */
     max-width: 1200px;
     background-color: white;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    padding-right: 30px;
-    padding-top: 16px;
-    padding-left: 16px;
-    padding-bottom: 16px;
+  padding: 16px;
     box-sizing: border-box;
     display: flex;
     flex-direction: row;
@@ -285,6 +282,7 @@ included inside of specified width & height */
   box-sizing: border-box;
   border-radius: 6px;
   box-shadow: 0 6px 12px rgba(0,0,0,0.75); /* simple, subtle shadow */
+  padding: 16px;
 }
 
 .row {
@@ -303,6 +301,7 @@ div.rounded-box {
   width: 700px;
   height: 500px;
   box-shadow: 0 6px 12px rgba(0,0,0,0.75); /* simple, subtle shadow */
+  padding: 16px;
 }
 
 div.right-leaning {
@@ -313,4 +312,33 @@ div.right-leaning {
   height: 200px;
   background: #C8C8C8;
   box-shadow: 0 6px 12px rgba(0,0,0,0.75); /* simple, subtle shadow */
+  padding: 16px;
+}
+
+/* closet.php */
+.item-container { 
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  gap: 20px;
+  padding: 20px;
+}
+
+.itembox { /* individual boxes */
+    flex: 1 1 250px; /* grow/shrink with min width 250px */
+    max-width: 300px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+    padding: 20px;
+    background: white;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.item-image {
+    width: 100%;
+    height: 180px;
+    object-fit: contain;
+    border-radius: 8px;
+    margin-bottom: 10px;
 }

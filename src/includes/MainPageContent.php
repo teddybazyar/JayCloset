@@ -76,7 +76,7 @@ class MainPageContent{
             <br> <br> <br> <br> <br>
             <br> <br> <br> <br> <br>
             <br> <br> <br> <br> <br>
-            </section>';
+            </section><script src="/JayCloset/src/js/slideshow.js"></script>';
     }
 }
 
