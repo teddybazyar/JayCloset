@@ -119,7 +119,7 @@ footer {
     padding: 20px;
     width: 100%;
     margin-top: auto;
-
+    height: 120px;
     font-family: Arial, Helvetica, sans-serif;
     
     text-align: center;
@@ -381,11 +381,15 @@ div.right-leaning {
   flex-wrap: wrap;
   justify-content: space-evenly;
   gap: 20px;
-  padding: 20px;
+  padding-bottom: 20px;
 }
 
 .itembox { /* individual boxes */
     flex: 1 1 250px; /* grow/shrink with min width 250px */
+    justify-content: center;
+    flex-direction: column;
+    justify-content: space-between; 
+
     max-width: 300px;
     box-sizing: border-box;
     border-radius: 10px;
@@ -393,11 +397,30 @@ div.right-leaning {
     padding: 20px;
     background: white;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
+    height: 100%;
+}
+
+.button-wrapper {
+    margin-top: auto;
+    display: flex;
+    justify-content: center;
+}
+
+.itembox button {
+  margin-top: auto;
+  display: flex;
+  background-color: #e1261c;
+  justify-content:center;
+  align-items: center;
+  border-color: white;
+  border-radius: 10px;
+  width: 80%;
+  height: 50px;
 }
 
 .item-image {
     width: 100%;
-    height: 180px;
+    height: 50%;
     object-fit: contain;
     border-radius: 8px;
     margin-bottom: 10px;
@@ -476,22 +499,26 @@ div.right-leaning {
   
 /* Search Side Bar */
 .sidenav {
+  padding: 0px 4px 4px 20px;
   display: flex;
   flex: 1;
   flex-direction: column;
   height: calc(100% - 120px);
-  width: 200px;
+  width: 225px;
   position: fixed;
+  top: 120px;
   left: 0;
   background-color: white;
   border-right: 3px solid;
   border-color: #c8c8c8;
+  overflow: scroll;
+  overflow-x: visible;
 }
 
 .sidenav a {
-  padding: 8px 8px 8px 32px;
+  padding: 8px 8px 8px 20px;
   text-decoration: none;
-  font-size: 24px;
+  font-size: 16px;
   color: #0070ba;
   display: block;
 }
@@ -501,7 +528,7 @@ div.right-leaning {
 }
 
 .main-content {
-  margin-left: 200px; 
+  margin-left: 225px; 
   padding-left: 30px; 
 }
 
