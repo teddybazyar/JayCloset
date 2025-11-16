@@ -1,7 +1,7 @@
 <?php
 
 class MainPageContent{
-
+// TO-DO: add info sent from Career Closet
     static function render() {
         return '<section id="welcome">
             <div class="h1">

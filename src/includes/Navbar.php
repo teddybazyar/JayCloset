@@ -23,7 +23,12 @@
             // 1064*598
             echo '      </a>';
             echo '  </div>';
-            echo '      <ul class="nav-links">';
+            // Mobile hamburger toggle button (no animation, simple dropdown)
+            echo '  <button class="nav-toggle" aria-controls="primary-navigation" aria-expanded="false" aria-label="Toggle navigation">';
+            echo '      &#9776;';
+            echo '  </button>';
+
+            echo '      <ul id="primary-navigation" class="nav-links">';
 
             // Links (Right)
             foreach ($this->links as $name => $data) {
