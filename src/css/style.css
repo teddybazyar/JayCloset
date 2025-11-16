@@ -98,19 +98,24 @@ nav ul li a:hover {
     border-top: 1px solid rgba(0,0,0,0.06);
   }
 
-  .nav_logo img {
-    height: clamp(40px, 8vw, 80px);
+  .nav_logo {
+    display: flex;
+    align-items: center;
   }
 }
 
-.nav_logo img {
-    display: flex;
-    padding-bottom: 15px;
-    align-items: center; 
-    height: 150px;
+.nav_logo .logo-btn img {
+    height: clamp(60px, 10vw, 120px);
     width: auto;
-    height: clamp(60px, 10vw, 120px); /* adjust the size based on the screen size */
+    cursor: pointer;
+    transition: 0.2s;
 }
+
+.nav_logo .logo-btn:hover img {
+    transform: scale(0.96);
+    opacity: 0.85;
+}
+
 
 /* footer */
 footer {
@@ -410,6 +415,8 @@ div.right-leaning {
   margin-top: auto;
   display: flex;
   background-color: #e1261c;
+  color: white;
+  font-size: medium;
   justify-content:center;
   align-items: center;
   border-color: white;
@@ -499,7 +506,7 @@ div.right-leaning {
   
 /* Search Side Bar */
 .sidenav {
-  padding: 0px 4px 4px 20px;
+  padding : 0px 15px 4px 15px;
   display: flex;
   flex: 1;
   flex-direction: column;

@@ -16,13 +16,11 @@
             echo '<nav class="navbar">';
 
             // Logo section
-            echo '  <div class="nav_logo">';
-
-            echo '      <a ref="index.php" class="logo">';
-            echo '          <img src="../images/Teams&Logo/JayClosetLogo.png"';
-            // 1064*598
-            echo '      </a>';
-            echo '  </div>';
+            echo '<div class="nav_logo">';
+            echo '    <a href="index.php" class="logo-btn">';
+            echo '        <img src="../images/Teams&Logo/JayClosetLogo.png" alt="Jay Closet Logo">';
+            echo '    </a>';
+            echo '</div>';
             // Mobile hamburger toggle button (no animation, simple dropdown)
             echo '  <button class="nav-toggle" aria-controls="primary-navigation" aria-expanded="false" aria-label="Toggle navigation">';
             echo '      &#9776;';
