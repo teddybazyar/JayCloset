@@ -21,7 +21,7 @@ switch ($page) {
         break;
     case 'login':
         ob_start();
-        require_once __DIR__ . '/login/loginform.html';
+        require_once __DIR__ . '/login/loginform.php';
         $content = ob_get_clean();
         break;
     case 'create':
