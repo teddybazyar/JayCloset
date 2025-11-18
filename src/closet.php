@@ -42,7 +42,24 @@ $allItems = jayclosetdb::getDataFromSQL($getItemsSQL);
 
 <?php $nav->display(); ?>
 
-<div class="sidenav">
+    <div class='filterbar-container'>
+        <div class='btn-filterbar'>
+            <li class="active-filter"><a href="closet.php">All Items</a></li>
+            <li class="active-filter"><a href="closet.php?gender=Women">Women</a></li>
+            <li class="active-filter"><a href="closet.php?gender=Men">Men</a></li>
+            <li class="active-filter"><a href="closet.php?gender=Unisex">Unisex</a></li>
+            <li class="active-filter"><a href="closet.php?categories=Tops/Blouse">Tops/Blouse</a></li>
+            <li class="active-filter"><a href="closet.php?categories=Sweater/Vest/Cardigan">Sweater/Vest/Cardigan</a></li>
+            <li class="active-filter"><a href="closet.php?categories=Jacket">Jacket</a></li>
+            <li class="active-filter"><a href="closet.php?categories=Bottoms">Bottoms</a></li>
+            <li class="active-filter"><a href="closet.php?categories=Shoes">Shoes</a></li>
+            <li class="active-filter"><a href="closet.php?categories=Dress">Dress</a></li>
+            <li class="active-filter"><a href="closet.php?categories=Others">Others</a></li>
+        </div>
+    </div>
+
+
+<!-- <div class="sidenav">
     <h4><a href="closet.php">All Items</a></h4>
     <h4>Search by Gender</h4>
     <a href="closet.php?gender=Women">Women</a>
@@ -57,8 +74,9 @@ $allItems = jayclosetdb::getDataFromSQL($getItemsSQL);
     <a href="closet.php?categories=Dress">Dress</a>
     <a href="closet.php?categories=Others">Others</a>
     <h4>Search by keyword</h4>
-    <!-- add search field -->
-</div>
+    <input type="text" placeholder="Search..">
+    <br><br><br>
+</div> -->
 
 <div class="main-content"> <!-- EVERYTHING inside MAIN will move right -->
     <!-- display filter -->
