@@ -248,6 +248,118 @@ div.card-right p {
     margin-top: 100px;
 }
 
+/* Create Account Page (scoped) */
+.create-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 240px); /* allow for fixed header/footer heights */
+  background: #f5f6fa;
+  padding: 20px 0;
+}
+
+.create-page .sheet {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.create-page .container {
+  background: #fff;
+  padding: 2rem 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  width: 100%;
+  max-width: 420px;
+  text-align: center;
+}
+
+.create-page .container h2 {
+  margin-bottom: 1.5rem;
+  color: #2d3436;
+  font-size: 1.8rem;
+}
+
+.create-page form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  text-align: left;
+}
+
+.create-page label {
+  font-weight: 600;
+  color: #2d3436;
+  margin-bottom: 0.3rem;
+  display: block;
+}
+
+.create-page input {
+  width: 100%;
+  padding: 0.7rem;
+  border: 1px solid #dfe6e9;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.create-page input:focus {
+  border-color: #0984e3;
+  box-shadow: 0 0 5px rgba(9, 132, 227, 0.4);
+  outline: none;
+}
+
+.create-page button {
+  background: #0984e3;
+  color: #fff;
+  padding: 0.8rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.create-page button:hover {
+  background: #74b9ff;
+}
+
+.create-page p {
+  margin-top: 1.2rem;
+  color: #636e72;
+  font-size: 0.95rem;
+}
+
+.create-page a {
+  color: #0984e3;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.create-page a:hover {
+  text-decoration: underline;
+}
+
+.create-page .password-requirements {
+  font-size: 0.85rem;
+  color: #636e72;
+  margin-top: 0.5rem;
+  padding: 0.5rem;
+  background-color: #f8f9fa;
+  border-radius: 5px;
+  border-left: 3px solid #0984e3;
+}
+
+.create-page .password-requirements ul {
+  margin: 0.3rem 0 0 1.2rem;
+  padding: 0;
+}
+
+.create-page .password-requirements li {
+  margin: 0.2rem 0;
+}
+
 /* index/home page */
 
 /* any padding & border added will be 
@@ -361,7 +473,7 @@ included inside of specified width & height */
 
 div.rounded-box {
   border-top-right-radius: 100px; 
-  border-bottom-right-radius: 250px;
+  border-bottom-right-radius: 200px;
   background: #3DB5E6;
   width: 700px;
   height: 550px;

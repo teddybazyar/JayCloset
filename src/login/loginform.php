@@ -80,7 +80,7 @@ if (empty($_SESSION['csrf_token'])) {
             <br> <br>
             <button type="submit">Login</button>
         </form>
-        <p>Don't have an account? <a href="login/createform.php">Register here</a></p>
+        <p>Don't have an account? <a href="index.php?page=create">Register here</a></p>
     </div>
 </body>
 </html>
