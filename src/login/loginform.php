@@ -74,10 +74,10 @@ if (empty($_SESSION['csrf_token'])) {
             
             <label for="ID">Student ID:</label>
             <input type="text" id="ID" name="ID" required maxlength="7" pattern="[0-9]{7}" title="7 digits only" autocomplete="username">
-            <br>
+            <br> <br>
             <label for="passwrd">Password:</label>
             <input type="password" id="passwrd" name="passwrd" required maxlength="20" autocomplete="current-password">
-            <br>
+            <br> <br>
             <button type="submit">Login</button>
         </form>
         <p>Don't have an account? <a href="login/createform.php">Register here</a></p>

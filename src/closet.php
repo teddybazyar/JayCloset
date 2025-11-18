@@ -124,6 +124,6 @@ $allItems = jayclosetdb::getDataFromSQL($getItemsSQL);
 
 <?= $footer->render(); ?>
 
-
+    <script src="js/hamburger.js" defer></script>
 </body>
 </html>

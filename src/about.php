@@ -26,6 +26,48 @@ $footer =new Footer("Jay Closet 2025");
     <main>
         <!-- <section> -->
           <div class="h1">
+            <h1> Career Closet Staff and Employees </h1>
+          </div>
+          <div class="p">
+            <p>   
+            A little bit about the Career Closet staff and employees overall!
+            </p>
+          </div> 
+          <div class="team-members">
+            <div class="card">
+              <div class="card-left">
+                <img src="" alt="" class='profile-pic'>
+                <h2>Staff Member</h2>
+              </div>
+              <div class="card-right">
+                <p>Insert bio and contact information here.</p>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-left">
+                <img src="" alt="" class='profile-pic'>
+                <h2>Staff Member</h2>
+              </div>
+              <div class="card-right">
+                <p> Insert bio and contact information here.</p>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-left">
+                <img src="" alt="" class='profile-pic'>
+                <h2>Staff Member</h2>
+              </div>
+              <div class="card-right">
+                <p>Insert bio and contact information here.</p>
+              </div>
+            </div>
+          </div>
+
+          <br><br><br><br><br><br><br>
+
+          <div class="h1">
             <h1> Founding Team </h1>
           </div>
           <div class="p">
@@ -82,7 +124,6 @@ $footer =new Footer("Jay Closet 2025");
     </main>
     <?php echo $footer->render(); ?>
 
-    <!-- Load mobile nav toggle script (same as index.php) -->
     <script src="js/hamburger.js" defer></script>
   </body>
 </html>

@@ -13,6 +13,7 @@ if (empty($_SESSION['csrf_token'])) {
     $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
 }
 ?>
+<!-- TO-DO nav and footer doesn't show on this page -->
 <!doctype html>
 <html lang="en">
 <head>
