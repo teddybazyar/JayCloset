@@ -1,0 +1,92 @@
+<?php
+require_once __DIR__ . '/../includes/jayclosetdb.php';
+require_once __DIR__ . '/cart.php';
+require_once __DIR__ . '/products.php';
+require_once __DIR__ . '/send_user_email.php';
+require_once __DIR__ . '/send_admin_email.php';
+session_start();
+
+if (!isset($_SESSION['cart']) || empty($_SESSION['cart']->getItems())) {
+    header("Location: ../cart_page.php");
+    exit();
+}
+
+$userId = null;
+$user = null;
+if (!empty($_SESSION['user']) && is_array($_SESSION['user']) && isset($_SESSION['user']['ID'])) {
+    $userId = (int)$_SESSION['user']['ID'];
+    $user = $_SESSION['user'];
+} elseif (!empty($_SESSION['user_id'])) {
+    $userId = (int)$_SESSION['user_id'];
+    $u = jayclosetdb::getDataFromSQL("SELECT ID, fname, lname, email FROM users WHERE ID = ?", [$userId]);
+    if (!empty($u)) $user = $u[0];
+}
+
+if ($userId === null || $user === null) {
+    echo "You must be logged in to checkout. Please <a href='index.php?page=login'>login</a>.";
+    exit();
+}
+
+$cart = $_SESSION['cart'];
+$items = $cart->getItems();
+
+try {
+    jayclosetdb::startTransaction();
+
+    $qty = count($items);
+    $sqlInsertOrder = "INSERT INTO orders (ID, qty, time_placed, active_order) VALUES (?, ?, NOW(), 1)";
+    jayclosetdb::executeSQL($sqlInsertOrder, [$userId, $qty], true);
+    $orderID = jayclosetdb::executeSQL("SELECT LAST_INSERT_ID() AS id", [], true);
+    if (is_string($orderID) || is_numeric($orderID)) {
+        $orderID = (int)$orderID;
+    } else {
+        $row = jayclosetdb::getDataFromSQL("SELECT LAST_INSERT_ID() as id");
+        $orderID = (int)$row[0]['id'];
+    }
+
+    $sqlInsertItem = "INSERT INTO items (itemID, orderID, sku) VALUES (?, ?, ?)";
+    $sqlUpdateReserved = "UPDATE descript SET reserved = 1 WHERE itemID = ?";
+
+    foreach ($items as $prod) {
+        $itemID = $prod->getItemID();
+        $sku = $prod->getSKU();
+
+        jayclosetdb::executeSQL($sqlInsertItem, [$itemID, $orderID, $sku]);
+
+        jayclosetdb::executeSQL($sqlUpdateReserved, [$itemID]);
+    }
+
+    jayclosetdb::commitTransaction();
+
+    $cart->empty();
+    $_SESSION['cart'] = $cart;
+
+    $orderRow = jayclosetdb::getDataFromSQL("SELECT * FROM orders WHERE orderID = ?", [$orderID]);
+    $orderInfo = !empty($orderRow) ? $orderRow[0] : null;
+
+    $itemDetails = [];
+    foreach ($items as $p) {
+        $itemDetails[] = [
+            'itemID' => $p->getItemID(),
+            'sku' => $p->getSKU(),
+            'title' => $p->getTitle(),
+            'description' => $p->getDescription()
+        ];
+    }
+
+    // send confirmation emails
+    send_user_email($user['email'], $user['fname'] ?? '', $user['lname'] ?? '', $orderID, $itemDetails, $orderInfo);
+    // admin email - change admin address inside the function or pass it if you prefer
+    send_admin_email($orderID, $user, $itemDetails, $orderInfo);
+
+    // show confirmation page or redirect
+    header("Location: order_confirmation.php?orderID=" . urlencode($orderID));
+    exit();
+
+} catch (Exception $e) {
+    jayclosetdb::rollbackTransaction();
+    error_log("Checkout failed: " . $e->getMessage());
+    echo "An error occurred during checkout. Please try again later.";
+    exit();
+}
+?>

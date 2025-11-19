@@ -1,9 +1,9 @@
 <?php
 session_start();
 
-require_once __DIR__ . '/includes/jayclosetdb.php';
-require_once __DIR__ . '/ShoppingCart.php';
-require_once __DIR__ . '/Product.php';
+require_once __DIR__ . '/../includes/jayclosetdb.php';
+require_once __DIR__ . '/cart.php';
+require_once __DIR__ . '/product.php';
 
 if (!isset($_SESSION['cart'])) {
     $_SESSION['cart'] = new ShoppingCart();
