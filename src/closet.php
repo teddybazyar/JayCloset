@@ -59,10 +59,28 @@ $allItems = jayclosetdb::getDataFromSQL($getItemsSQL);
     </div>
 
 
-<!-- <div class="sidenav">
-    <h4><a href="closet.php">All Items</a></h4>
+<div class="sidenav">
     <h4>Search by Gender</h4>
-    <a href="closet.php?gender=Women">Women</a>
+        <label class="checkbox-container">
+            <input type='checkbox'>Women<br>
+            <input type='checkbox'>Men<br>
+            <input type='checkbox'>Unisex<br><br>
+        </label>
+    <h4>Search by Gender</h4>
+        <label class="checkbox-container">
+            <input type='checkbox'>Tops/Blouse<br>
+            <input type='checkbox'>Sweater/Vest/Cardigan<br>
+            <input type='checkbox'>Jacket<br>
+            <input type='checkbox'>Bottoms<br>
+            <input type='checkbox'>Shoes<br>
+            <input type='checkbox'>Dress<br>
+            <input type='checkbox'>Others<br><br>
+        </label>
+    <h4>Search by keyword</h4>
+        <input type="text" placeholder="Search..">
+        <br><br><br>
+
+    <!-- <a href="closet.php?gender=Women">Women</a>
     <a href="closet.php?gender=Men">Men</a>
     <a href="closet.php?gender=Unisex">Unisex</a>
     <h4>Search by Category</h4>
@@ -75,8 +93,8 @@ $allItems = jayclosetdb::getDataFromSQL($getItemsSQL);
     <a href="closet.php?categories=Others">Others</a>
     <h4>Search by keyword</h4>
     <input type="text" placeholder="Search..">
-    <br><br><br>
-</div> -->
+    <br><br><br> -->
+</div>
 
 <div class="main-content"> <!-- EVERYTHING inside MAIN will move right -->
     <!-- display filter -->

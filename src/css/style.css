@@ -625,7 +625,7 @@ div.right-leaning {
   height: calc(100% - 120px);
   width: 225px;
   position: fixed;
-  top: 120px;
+  top: 170px;
   left: 0;
   background-color: white;
   border-right: 3px solid;
@@ -673,6 +673,7 @@ div.right-leaning {
   border-bottom: 2px solid;
   border-top: 2px solid;
   border-color: #c8c8c8;
+  overflow: scroll;
 }
 
 .btn-filterbar {
@@ -683,7 +684,7 @@ div.right-leaning {
 
 .filter-btn {
   display: flex;
-  font-size: small
+  font-size: smaller
 }
 
 .active-filter {
