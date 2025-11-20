@@ -8,7 +8,21 @@ require_once __DIR__ . '/includes/Navbar.php';
 require_once __DIR__ . '/includes/MainPageContent.php';
 require_once __DIR__ . '/includes/Footer.php';
 
-$nav = new Navbar();
+// Check if user is admin and set navbar accordingly
+$isAdmin = isset($_SESSION["ADMIN"]) && $_SESSION["ADMIN"] == 1;
+
+if ($isAdmin) {
+    $navLinks = [
+        'Home' => ['url' => 'index.php', 'icon' => 'fas fa-home'],
+        'Closet' => ['url' => 'closet.php', 'icon' => 'fa fa-list'],
+        'Users' => ['url' => 'admin/users.php', 'icon' => 'fas fa-users'],
+        'Logout' => ['url' => 'login/logout.php', 'icon' => 'fas fa-sign-out-alt']
+    ];
+    $nav = new Navbar($navLinks);
+} else {
+    $nav = new Navbar(); // Use default links
+}
+
 $footer = new Footer("Jay Closet 2025");
 $title = 'Welcome to Jay Closet!'; // title for the tab
 

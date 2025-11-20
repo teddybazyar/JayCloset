@@ -8,17 +8,48 @@
             'Login' => ['url' => 'index.php?page=login', 'icon' => 'fas fa-key']
         ];
 
+        private static $loggedInNavLinks = [
+            'Home' => ['url' => 'index.php', 'icon' => 'fas fa-home'],
+            'About' => ['url' => 'about.php', 'icon' => 'fas fa-info-circle'],
+            'Closet' => ['url' => 'closet.php', 'icon' => 'fa fa-list'],
+            'Logout' => ['url' => 'login/logout.php', 'icon' => 'fas fa-sign-out-alt']
+        ];
+
         public function __construct($links = []) {
-            $this->links = !empty($links) ? $links : self::$defaultNavLinks;
+            // If custom links are provided, use them
+            if (!empty($links)) {
+                $this->links = $links;
+            } else {
+                // Check if user is logged in
+                if (isset($_SESSION["LoginStatus"]) && $_SESSION["LoginStatus"] == "YES") {
+                    $this->links = self::$loggedInNavLinks;
+                } else {
+                    $this->links = self::$defaultNavLinks;
+                }
+            }
         }
 
         public function display() {
+            // Determine the correct path to the logo based on current directory
+            $currentPath = $_SERVER['PHP_SELF'];
+            $logoPath = '../images/Team&Logo/JayClosetLogo.png';
+
+            // If we're in the admin or login folder, adjust the path
+            if (strpos($currentPath, '/admin/') !== false) {
+                $logoPath = '../images/Teams&Logo/JayClosetLogo.png';
+            } elseif (strpos($currentPath, '/login/') !== false) {
+                $logoPath = '../images/Teams&Logo/JayClosetLogo.png';
+            } else {
+                // We're in the root directory
+                $logoPath = 'images/Team&Logo/JayClosetLogo.png';
+            }
+
             echo '<nav class="navbar">';
 
             // Logo section
             echo '<div class="nav_logo">';
             echo '    <a href="index.php" class="logo-btn">';
-            echo '        <img src="../images/Teams&Logo/JayClosetLogo.png" alt="Jay Closet Logo">';
+            echo '        <img src="' . $logoPath . '" alt="Jay Closet Logo">';
             echo '    </a>';
             echo '</div>';
             // Mobile hamburger toggle button (no animation, simple dropdown)

@@ -8,6 +8,17 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
+// If user is already logged in, redirect them away from login page
+if (isset($_SESSION["LoginStatus"]) && $_SESSION["LoginStatus"] == "YES") {
+    // Redirect admins to admin dashboard, regular users to home
+    if (isset($_SESSION["ADMIN"]) && $_SESSION["ADMIN"] == 1) {
+        header("Location: ../admin/admin.php");
+    } else {
+        header("Location: ../index.php");
+    }
+    exit;
+}
+
 // Generate CSRF token if not exists
 if (empty($_SESSION['csrf_token'])) {
     $_SESSION['csrf_token'] = bin2hex(random_bytes(32));

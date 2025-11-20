@@ -6,7 +6,22 @@ require_once __DIR__ . '/includes/Footer.php';
 require_once __DIR__ . '/includes/db_cred.php';
 require_once __DIR__ . '/includes/jayclosetdb.php';
 
-$nav = new Navbar();
+// Check if user is admin
+$isAdmin = isset($_SESSION["ADMIN"]) && $_SESSION["ADMIN"] == 1;
+
+// Set navbar links based on admin status
+if ($isAdmin) {
+    $navLinks = [
+        'Home' => ['url' => 'index.php', 'icon' => 'fas fa-home'],
+        'Closet' => ['url' => 'closet.php', 'icon' => 'fa fa-list'],
+        'Users' => ['url' => 'admin/users.php', 'icon' => 'fas fa-users'],
+        'Logout' => ['url' => 'login/logout.php', 'icon' => 'fas fa-sign-out-alt']
+    ];
+    $nav = new Navbar($navLinks);
+} else {
+    $nav = new Navbar(); // Use default links
+}
+
 $footer = new Footer("Jay Closet 2025");
 $title = 'Closet - Jay Closet';
 $clothesImgDir = '../images/items/';

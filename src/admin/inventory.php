@@ -1,0 +1,1 @@
+connect the admin to the closet page and add an edit button, allow admin to add/remove items 

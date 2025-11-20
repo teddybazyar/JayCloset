@@ -22,6 +22,22 @@ if (!isset($_SESSION["LoginStatus"]) || $_SESSION["LoginStatus"] != "YES" || !is
     header("Location: ../index.php?page=login");
     exit;
 }
+
+// Include navbar and footer classes
+require_once "../includes/Navbar.php";
+require_once "../includes/Footer.php";
+
+// Custom navbar links for admin
+$adminNavLinks = [
+    'Home' => ['url' => '../index.php', 'icon' => 'fas fa-home'],
+    'Closet' => ['url' => '../closet.php', 'icon' => 'fa fa-list'],
+    'Users' => ['url' => 'users.php', 'icon' => 'fas fa-users'],
+    'Logout' => ['url' => '../login/logout.php', 'icon' => 'fas fa-sign-out-alt']
+];
+
+$navbar = new Navbar($adminNavLinks);
+$footer = new Footer("Jay's Closet - Admin Dashboard");
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -32,14 +48,38 @@ if (!isset($_SESSION["LoginStatus"]) || $_SESSION["LoginStatus"] != "YES" || !is
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
+    <?php $navbar->display(); ?>
+
     <div class="h1">
         <h1>Admin Dashboard</h1>
     </div>
     
     <div class="p">
-        <h2>Coming Soon</h2>
-        <p>Welcome, <?php echo htmlspecialchars($_SESSION["email"]); ?>!</p>
-        <p>The admin dashboard is currently under development. Check back soon for management features.</p>
+        
+        <div style="margin-top: -4rem;">
+        <h2>Welcome, <?php echo htmlspecialchars($_SESSION["fname"] . " " . $_SESSION["lname"]); ?>!</h2>
+        <p>You are logged in as an administrator.</p>
+        <p>Your session will expire after 30 minutes of inactivity.</p>
+            <h3>Quick Links:</h3>
+            <div style="display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap; margin-top: 1.5rem;">
+                <div style="background: #f8f9fa; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); text-align: center; min-width: 250px; transition: transform 0.2s ease;">
+                    <a href="users.php" style="text-decoration: none; color: #0984e3; font-size: 1.2rem; font-weight: 600;">
+                        Manage Users
+                    </a>
+                    <p style="margin-top: 0.5rem; color: #636e72; font-size: 0.9rem;">View and manage user accounts</p>
+                </div>
+                <div style="background: #f8f9fa; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); text-align: center; min-width: 250px; transition: transform 0.2s ease;">
+                    <a href="../closet.php" style="text-decoration: none; color: #0984e3; font-size: 1.2rem; font-weight: 600;">
+                        Closet Inventory
+                    </a>
+                    <p style="margin-top: 0.5rem; color: #636e72; font-size: 0.9rem;">Edit and manage closet items</p>
+                </div>
+            </div>
+        </div>
     </div>
+
+    <?php echo $footer->render(); ?>
+
+    <script src="../js/hamburger.js" defer></script>
 </body>
 </html>
