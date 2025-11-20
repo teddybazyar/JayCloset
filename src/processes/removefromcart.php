@@ -1,8 +1,7 @@
 <?php
-session_start();
-
 require_once __DIR__ . '/cart.php';
 require_once __DIR__ . '/product.php';
+session_start();
 
 if (!isset($_SESSION['cart'])) {
     header("Location: ../cart_page.php");

@@ -1,9 +1,15 @@
 <?php
-session_start();
-
 require_once __DIR__ . '/../includes/jayclosetdb.php';
 require_once __DIR__ . '/cart.php';
-require_once __DIR__ . '/product.php';
+require_once __DIR__ . '/products.php';
+session_start();
+
+$userId = null;
+$user = null;
+if ($userId === null || $user === null) {
+    echo "You must be logged in to checkout. Please <a href='../index.php?page=login'>login</a>.";
+    exit();
+}
 
 if (!isset($_SESSION['cart'])) {
     $_SESSION['cart'] = new ShoppingCart();
@@ -34,6 +40,6 @@ if (isset($_POST['itemID'])) {
     }
 }
 
-header("Location: cart.php");
+header("Location: ../cart_page.php");
 exit();
 ?>

@@ -128,7 +128,9 @@ $allItems = jayclosetdb::getDataFromSQL($getItemsSQL);
                     <p><strong>Gender: </strong><?= htmlspecialchars($row["gender"]) ?></p>
                     <p><strong>Category: </strong><?= htmlspecialchars($row["categories"]) ?></p>
                     <div class="button-wrapper">
-                        <button type='button'>Add to Cart</button>
+                        <form action="processes/addtocart.php" method="POST">
+                            <button type="submit">Add to Cart</button>
+                        </form>
                     </div>
                     
                 </div>

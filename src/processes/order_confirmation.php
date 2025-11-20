@@ -1,7 +1,7 @@
 <?php
-session_start();
 require_once __DIR__ . '/includes/Navbar.php';
 require_once __DIR__ . '/includes/Footer.php';
+session_start();
 
 $nav = new Navbar();
 $footer = new Footer("Jay Closet 2025");
