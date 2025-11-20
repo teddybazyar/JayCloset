@@ -1,6 +1,5 @@
 <?php
 session_start();
-
 require_once __DIR__ . '/includes/Navbar.php';
 require_once __DIR__ . '/includes/Footer.php';
 require_once __DIR__ . '/includes/db_cred.php';
@@ -26,22 +25,56 @@ $footer = new Footer("Jay Closet 2025");
 $title = 'Closet - Jay Closet';
 $clothesImgDir = '../images/items/';
 
-// Filter //
-$filterGender = $_GET['gender'] ?? null;
-$filterCategory = $_GET['categories'] ?? null;
-
-# SQL - gender, category, and all
-if ($filterGender) {
-    $getItemsSQL = "SELECT * FROM descript WHERE reserved = 0 AND gender = '" . $filterGender . "'";
-}
-else if ($filterCategory) {
-    $getItemsSQL = "SELECT * FROM descript WHERE reserved = 0 AND categories = '" . $filterCategory . "'";
-}
-else {
-    $getItemsSQL = "SELECT * FROM descript WHERE reserved = 0";
+// RESET ALL FILTERS
+if (isset($_GET['reset'])) {
+    unset($_SESSION['gender'], $_SESSION['categories'], $_SESSION['size'], $_SESSION['color']);
+    header("Location: closet.php");
+    exit;
 }
 
+// SAVE GET → SESSION
+if (isset($_GET['gender'][0])) {
+    $_SESSION['gender'] = ($_GET['gender'][0] === "None") ? null : $_GET['gender'][0];
+}
+
+if (isset($_GET['categories'][0])) {
+    $_SESSION['categories'] = $_GET['categories'][0] === "All" ? null : $_GET['categories'][0];
+}
+if (isset($_GET['size'][0])) {
+    $_SESSION['size'] = $_GET['size'][0] === "All" ? null : $_GET['size'][0];
+}
+if (isset($_GET['color'][0])) {
+    $_SESSION['color'] = $_GET['color'][0] === "All" ? null : $_GET['color'][0];
+}
+
+$conditions = ["reserved = 0"];  // always include
+
+// Gender
+if (!empty($_SESSION['gender'])) {
+    $conditions[] = "gender = '" . addslashes($_SESSION['gender']) . "'";
+}
+
+// Categories
+if (!empty($_SESSION['categories'])) {
+    $conditions[] = "categories = '" . addslashes($_SESSION['categories']) . "'";
+}
+
+// Size
+if (!empty($_SESSION['size'])) {
+    $conditions[] = "size = '" . addslashes($_SESSION['size']) . "'";
+}
+
+// Color
+if (!empty($_SESSION['color'])) {
+    $conditions[] = "color = '" . addslashes($_SESSION['color']) . "'";
+}
+
+
+// FINAL QUERY
+$whereSQL = "WHERE " . implode(" AND ", $conditions);
+$getItemsSQL = "SELECT * FROM descript $whereSQL;";
 $allItems = jayclosetdb::getDataFromSQL($getItemsSQL);
+
 ?>
 
 <!DOCTYPE html>
@@ -56,74 +89,82 @@ $allItems = jayclosetdb::getDataFromSQL($getItemsSQL);
 <body>
 
 <?php $nav->display(); ?>
-
-    <div class='filterbar-container'>
-        <div class='btn-filterbar'>
-            <li class="active-filter"><a href="closet.php">All Items</a></li>
-            <li class="active-filter"><a href="closet.php?gender=Women">Women</a></li>
-            <li class="active-filter"><a href="closet.php?gender=Men">Men</a></li>
-            <li class="active-filter"><a href="closet.php?gender=Unisex">Unisex</a></li>
-            <li class="active-filter"><a href="closet.php?categories=Tops/Blouse">Tops/Blouse</a></li>
-            <li class="active-filter"><a href="closet.php?categories=Sweater/Vest/Cardigan">Sweater/Vest/Cardigan</a></li>
-            <li class="active-filter"><a href="closet.php?categories=Jacket">Jacket</a></li>
-            <li class="active-filter"><a href="closet.php?categories=Bottoms">Bottoms</a></li>
-            <li class="active-filter"><a href="closet.php?categories=Shoes">Shoes</a></li>
-            <li class="active-filter"><a href="closet.php?categories=Dress">Dress</a></li>
-            <li class="active-filter"><a href="closet.php?categories=Others">Others</a></li>
-        </div>
-    </div>
-
-
 <div class="sidenav">
-    <h4>Search by Gender</h4>
-        <label class="checkbox-container">
-            <input type='checkbox'>Women<br>
-            <input type='checkbox'>Men<br>
-            <input type='checkbox'>Unisex<br><br>
-        </label>
-    <h4>Search by Gender</h4>
-        <label class="checkbox-container">
-            <input type='checkbox'>Tops/Blouse<br>
-            <input type='checkbox'>Sweater/Vest/Cardigan<br>
-            <input type='checkbox'>Jacket<br>
-            <input type='checkbox'>Bottoms<br>
-            <input type='checkbox'>Shoes<br>
-            <input type='checkbox'>Dress<br>
-            <input type='checkbox'>Others<br><br>
-        </label>
-    <h4>Search by keyword</h4>
-        <input type="text" placeholder="Search..">
-        <br><br><br>
+    <form method="GET">
 
-    <!-- <a href="closet.php?gender=Women">Women</a>
-    <a href="closet.php?gender=Men">Men</a>
-    <a href="closet.php?gender=Unisex">Unisex</a>
-    <h4>Search by Category</h4>
-    <a href="closet.php?categories=Tops/Blouse">Tops/Blouse</a>
-    <a href="closet.php?categories=Sweater/Vest/Cardigan">Sweater/Vest/Cardigan</a>
-    <a href="closet.php?categories=Jacket">Jacket</a>
-    <a href="closet.php?categories=Bottoms">Bottoms</a>
-    <a href="closet.php?categories=Shoes">Shoes</a>
-    <a href="closet.php?categories=Dress">Dress</a>
-    <a href="closet.php?categories=Others">Others</a>
-    <h4>Search by keyword</h4>
-    <input type="text" placeholder="Search..">
-    <br><br><br> -->
+    <h4>Search by Gender</h4>
+        <?php
+            $genders = ["None", "Men", "Women", "Unisex"];
+            foreach ($genders as $g):
+        ?>
+            <label><input type="radio" name="genders[]" value="<?= $g ?>"
+                <?= in_array($g, $_GET['genders'] ?? []) ? "checked" : "" ?>> <?= $g ?></label><br>
+        <?php endforeach; ?>
+        <br>
+
+        <h4>Search by Category</h4>
+        <?php
+            $categories = [
+                "All",
+                "Tops/Blouse",
+                "Sweater/Vest/Cardigan",
+                "Jacket",
+                "Bottoms",
+                "Shoes",
+                "Dress",
+                "Others"
+            ];
+            foreach ($categories as $c):
+        ?>
+            <label><input type="radio" name="categories[]" value="<?= $c ?>"
+                <?= in_array($c, $_GET['categories'] ?? []) ? "checked" : "" ?>> <?= $c ?></label><br>
+        <?php endforeach; ?>
+        <br>
+
+        <h4>Search by Size</h4>
+        <?php
+            $sizes = ["All","XS","S","M","L","XL","XXL","5","6","7","8","9","10","11","12"];
+            foreach ($sizes as $s):
+        ?>
+            <label><input type="radio" name="size[]" value="<?= $s ?>"
+                <?= in_array($s, $_GET['size'] ?? []) ? "checked" : "" ?>> <?= $s ?></label><br>
+        <?php endforeach; ?>
+        <br>
+
+        <h4>Search by Color</h4>
+        <?php
+            $colors = ["All","Red","Yellow","Pink","Blue","Purple","Orange","Green","Beige","Brown","Black","White","Grey","Multi-color"];
+            foreach ($colors as $clr):
+        ?>
+            <label><input type="radio" name="color[]" value="<?= $clr ?>"
+                <?= in_array($clr, $_GET['color'] ?? []) ? "checked" : "" ?>> <?= $clr ?></label><br>
+        <?php endforeach; ?>
+        <br>
+
+        <!-- <h4>Search by keyword</h4>
+        <input type="text" name="keyword" placeholder="Search.."
+            value="<?= htmlspecialchars($_GET['keyword'] ?? "") ?>"><br><br> -->
+
+        <button type="submit" class="apply-btn">Apply Filters</button>
+        <a href="closet.php" class="reset-btn">Reset</a>
+
+    </form>
 </div>
+
 
 <div class="main-content"> <!-- EVERYTHING inside MAIN will move right -->
     <!-- display filter -->
-    <h1> 
+    <!-- <h1>
         <?php
-        if ($filterGender) {
-            echo htmlspecialchars($filterGender);
-        } elseif ($filterCategory) {
-            echo htmlspecialchars($filterCategory);
-        } else {
-            echo "All Items";
-        }
-        ?>
-    </h1>
+        // if ($genders) {
+        //     echo htmlspecialchars($genders);
+        // } elseif ($categories) {
+        //     echo htmlspecialchars($categories);
+        // } else {
+        //     echo "All Items";
+        // }
+        ?> -->
+    <!-- </h1> -->
 
 
     <?php if (!empty($allItems)): ?>

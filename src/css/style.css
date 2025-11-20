@@ -630,8 +630,7 @@ div.right-leaning {
   background-color: white;
   border-right: 3px solid;
   border-color: #c8c8c8;
-  overflow: scroll;
-  overflow-x: visible;
+  overflow-y: scroll;
 }
 
 .sidenav a {
