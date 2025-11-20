@@ -46,7 +46,7 @@ if (empty($_SESSION['csrf_token'])) {
         }
     </style>
 </head>
-<body>
+<main class="sheet create-page"><body>
     <div class="container">
         <h2>Login</h2>
         
@@ -82,5 +82,5 @@ if (empty($_SESSION['csrf_token'])) {
         </form>
         <p>Don't have an account? <a href="index.php?page=create">Register here</a></p>
     </div>
-</body>
+</body></main>
 </html>
