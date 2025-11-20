@@ -141,13 +141,12 @@ $allItems = jayclosetdb::getDataFromSQL($getItemsSQL);
         <?php endforeach; ?>
         <br>
 
-        <!-- <h4>Search by keyword</h4>
-        <input type="text" name="keyword" placeholder="Search.."
-            value="<?= htmlspecialchars($_GET['keyword'] ?? "") ?>"><br><br> -->
-
         <button type="submit" class="apply-btn">Apply Filters</button>
-        <a href="closet.php" class="reset-btn">Reset</a>
-
+        <br><br>
+        <form action="closet.php" method="GET">
+            <input type="hidden" name="reset" value="1">
+            <button type="submit" class="reset-btn">Reset</button>
+        </form>
     </form>
 </div>
 

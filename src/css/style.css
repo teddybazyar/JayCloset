@@ -618,14 +618,14 @@ div.right-leaning {
   
 /* Search Side Bar */
 .sidenav {
-  padding : 0px 15px 4px 15px;
+  padding : 0px 15px 20px 15px;
   display: flex;
   flex: 1;
   flex-direction: column;
   height: calc(100% - 120px);
   width: 225px;
   position: fixed;
-  top: 170px;
+  top: 120px;
   left: 0;
   background-color: white;
   border-right: 3px solid;
