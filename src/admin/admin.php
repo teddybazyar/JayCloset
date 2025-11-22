@@ -57,10 +57,6 @@ $footer = new Footer("Jay's Closet - Admin Dashboard");
     <div class="p">
         
         <div style="margin-top: -4rem;">
-        <h2>Welcome, <?php echo htmlspecialchars($_SESSION["fname"] . " " . $_SESSION["lname"]); ?>!</h2>
-        <p>You are logged in as an administrator.</p>
-        <p>Your session will expire after 30 minutes of inactivity.</p>
-            <h3>Quick Links:</h3>
             <div style="display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap; margin-top: 1.5rem;">
                 <div style="background: #f8f9fa; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); text-align: center; min-width: 250px; transition: transform 0.2s ease;">
                     <a href="users.php" style="text-decoration: none; color: #0984e3; font-size: 1.2rem; font-weight: 600;">
