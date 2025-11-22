@@ -493,20 +493,20 @@ div.right-leaning {
 }
 
 /* closet.php */
-.item-container { 
+.item-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
   gap: 20px;
   padding-bottom: 20px;
+  padding-right: 20px;
 }
 
 .itembox { /* individual boxes */
     flex: 1 1 250px; /* grow/shrink with min width 250px */
     justify-content: center;
     flex-direction: column;
-    justify-content: space-between; 
-
+    justify-content: space-between;
     max-width: 300px;
     box-sizing: border-box;
     border-radius: 10px;
@@ -533,7 +533,6 @@ div.right-leaning {
   align-items: center;
   border-color: white;
   border-radius: 10px;
-  width: 80%;
   height: 50px;
 }
 
@@ -653,47 +652,6 @@ div.right-leaning {
 
 @media screen and (max-height: 450px) {
   .sidenav a {font-size: 18px;}
-}
-
-/* filter top bar */
-.filterbar-container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 10px 10px 10px 10px;
-  padding-bottom: 10px;
-  z-index: 1000; /* keeps filterbar above everything */
-  position: fixed;
-  width: 100%;
-  height: 50px;
-  top: 120px;
-  gap: 20px;
-  background-color: white;
-  border-bottom: 2px solid;
-  border-top: 2px solid;
-  border-color: #c8c8c8;
-  overflow: scroll;
-}
-
-.btn-filterbar {
-  display: flex;
-  gap: 10px;
-  width: 100%;
-}
-
-.filter-btn {
-  display: flex;
-  font-size: smaller
-}
-
-.active-filter {
-  background-color: white;
-  list-style: none;
-}
-
-
-.active-filter a:hover {
-  color: #007BFF;
 }
 
 /* 

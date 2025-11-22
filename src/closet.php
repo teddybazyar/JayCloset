@@ -27,45 +27,63 @@ $clothesImgDir = '../images/items/';
 
 // RESET ALL FILTERS
 if (isset($_GET['reset'])) {
-    unset($_SESSION['gender'], $_SESSION['categories'], $_SESSION['size'], $_SESSION['color']);
+    unset($_SESSION['gender'], $_SESSION['category'], $_SESSION['size'], $_SESSION['color']);
     header("Location: closet.php");
     exit;
 }
 
 // SAVE GET → SESSION
-if (isset($_GET['gender'][0])) {
-    $_SESSION['gender'] = ($_GET['gender'][0] === "None") ? null : $_GET['gender'][0];
+if (isset($_GET['gender'])) {
+    $_SESSION['gender'] = $_GET['gender'];
 }
 
-if (isset($_GET['categories'][0])) {
-    $_SESSION['categories'] = $_GET['categories'][0] === "All" ? null : $_GET['categories'][0];
+if (!isset($_GET['gender'])){
+    $_SESSION['gender'] = "All";
 }
-if (isset($_GET['size'][0])) {
-    $_SESSION['size'] = $_GET['size'][0] === "All" ? null : $_GET['size'][0];
+
+if (isset($_GET['category'])) {
+    $_SESSION['category'] = $_GET['category'];
 }
-if (isset($_GET['color'][0])) {
-    $_SESSION['color'] = $_GET['color'][0] === "All" ? null : $_GET['color'][0];
+
+if (!isset($_GET['category'])){
+    $_SESSION['category'] = "All";
+}
+
+if (isset($_GET['size'])) {
+    $_SESSION['size'] = $_GET['size'];
+} 
+
+if (!isset($_GET['size'])){
+    $_SESSION['size'] = "All";
+}
+
+if (isset($_GET['color'])) {
+    $_SESSION['color'] = $_GET['color'];
+}
+
+if (!isset($_GET['color'])){
+    $_SESSION['color'] = "All";
 }
 
 $conditions = ["reserved = 0"];  // always include
 
 // Gender
-if (!empty($_SESSION['gender'])) {
+if (!empty($_SESSION['gender']) && $_SESSION['gender'] != 'All') {
     $conditions[] = "gender = '" . addslashes($_SESSION['gender']) . "'";
 }
 
 // Categories
-if (!empty($_SESSION['categories'])) {
-    $conditions[] = "categories = '" . addslashes($_SESSION['categories']) . "'";
+if (!empty($_SESSION['category']) && $_SESSION['category'] != 'All') {
+    $conditions[] = "categories = '" . addslashes($_SESSION['category']) . "'";
 }
 
 // Size
-if (!empty($_SESSION['size'])) {
+if (!empty($_SESSION['size']) && $_SESSION['size'] != 'All') {
     $conditions[] = "size = '" . addslashes($_SESSION['size']) . "'";
 }
 
 // Color
-if (!empty($_SESSION['color'])) {
+if (!empty($_SESSION['color']) && $_SESSION['color'] != 'All') {
     $conditions[] = "color = '" . addslashes($_SESSION['color']) . "'";
 }
 
@@ -92,32 +110,32 @@ $allItems = jayclosetdb::getDataFromSQL($getItemsSQL);
 <div class="sidenav">
     <form method="GET">
 
-    <h4>Search by Gender</h4>
+        <h4>Search by Gender</h4>
         <?php
-            $genders = ["None", "Men", "Women", "Unisex"];
+            $genders = ["All", "Men", "Women", "Unisex"];
             foreach ($genders as $g):
         ?>
-            <label><input type="radio" name="genders[]" value="<?= $g ?>"
-                <?= in_array($g, $_GET['genders'] ?? []) ? "checked" : "" ?>> <?= $g ?></label><br>
+        <label>
+            <input type="radio" name="gender" value="<?= $g ?>"
+                <?= ($g === ($_SESSION['gender'] ?? null)) ? "checked" : "" ?>>
+            <?= $g ?>
+        </label><br>
         <?php endforeach; ?>
         <br>
 
         <h4>Search by Category</h4>
         <?php
             $categories = [
-                "All",
-                "Tops/Blouse",
-                "Sweater/Vest/Cardigan",
-                "Jacket",
-                "Bottoms",
-                "Shoes",
-                "Dress",
-                "Others"
+                "All","Tops/Blouse","Sweater/Vest/Cardigan",
+                "Jacket","Bottoms","Shoes","Dress","Others"
             ];
             foreach ($categories as $c):
         ?>
-            <label><input type="radio" name="categories[]" value="<?= $c ?>"
-                <?= in_array($c, $_GET['categories'] ?? []) ? "checked" : "" ?>> <?= $c ?></label><br>
+        <label>
+            <input type="radio" name="category" value="<?= $c ?>"
+                <?= ($c === ($_SESSION['category'] ?? null)) ? "checked" : "" ?>>
+            <?= $c ?>
+        </label><br>
         <?php endforeach; ?>
         <br>
 
@@ -126,8 +144,11 @@ $allItems = jayclosetdb::getDataFromSQL($getItemsSQL);
             $sizes = ["All","XS","S","M","L","XL","XXL","5","6","7","8","9","10","11","12"];
             foreach ($sizes as $s):
         ?>
-            <label><input type="radio" name="size[]" value="<?= $s ?>"
-                <?= in_array($s, $_GET['size'] ?? []) ? "checked" : "" ?>> <?= $s ?></label><br>
+        <label>
+            <input type="radio" name="size" value="<?= $s ?>"
+                <?= ($s === ($_SESSION['size'] ?? null)) ? "checked" : "" ?>>
+            <?= $s ?>
+        </label><br>
         <?php endforeach; ?>
         <br>
 
@@ -136,34 +157,46 @@ $allItems = jayclosetdb::getDataFromSQL($getItemsSQL);
             $colors = ["All","Red","Yellow","Pink","Blue","Purple","Orange","Green","Beige","Brown","Black","White","Grey","Multi-color"];
             foreach ($colors as $clr):
         ?>
-            <label><input type="radio" name="color[]" value="<?= $clr ?>"
-                <?= in_array($clr, $_GET['color'] ?? []) ? "checked" : "" ?>> <?= $clr ?></label><br>
+        <label>
+            <input type="radio" name="color" value="<?= $clr ?>"
+                <?= ($clr === ($_SESSION['color'] ?? null)) ? "checked" : "" ?>>
+            <?= $clr ?>
+        </label><br>
         <?php endforeach; ?>
         <br>
 
         <button type="submit" class="apply-btn">Apply Filters</button>
-        <br><br>
-        <form action="closet.php" method="GET">
-            <input type="hidden" name="reset" value="1">
-            <button type="submit" class="reset-btn">Reset</button>
-        </form>
+        <button type="submit" name="reset" value="1" class="reset-btn">Reset</button>
+
     </form>
 </div>
 
 
+
 <div class="main-content"> <!-- EVERYTHING inside MAIN will move right -->
     <!-- display filter -->
-    <!-- <h1>
+    <!-- I think I can shorten this lines -->
+    <h1>
+        <?php echo "Result"; ?>
+    <h1>
+    <h2>
         <?php
-        // if ($genders) {
-        //     echo htmlspecialchars($genders);
-        // } elseif ($categories) {
-        //     echo htmlspecialchars($categories);
-        // } else {
-        //     echo "All Items";
-        // }
-        ?> -->
-    <!-- </h1> -->
+        // Show All
+        if ($_SESSION['gender'] == 'All' &&
+            $_SESSION['category'] == 'All' &&
+            $_SESSION['size'] == 'All' &&
+            $_SESSION['color'] == 'All') {
+
+                echo "All Items";
+        
+        } else {
+            echo "Gender: " . htmlspecialchars($_SESSION['gender']) . ', ';
+            echo "Category: " . htmlspecialchars($_SESSION['category']) . ', ';
+            echo "Size: " . htmlspecialchars($_SESSION['size']) . ', ';
+            echo "Color: " . htmlspecialchars($_SESSION['color']);
+        }
+        ?>
+        </h2>
 
 
     <?php if (!empty($allItems)): ?>
