@@ -240,9 +240,25 @@ $footer = new Footer("Jay's Closet - Add Item");
             </div>
 
             <div class="form-row">
+
                 <div class="form-group">
                     <label for="color">Color: <span class="required">*</span></label>
-                    <input type="text" id="color" name="color" required maxlength="50">
+                    <select id="color" name="color" required>
+                        <option value="">Select Color</option>
+                        <option value="Red">Red</option>
+                        <option value="Yellow">Yellow</option>
+                        <option value="Pink">Pink</option>
+                        <option value="Blue">Blue</option>
+                        <option value="Purple">Purple</option>
+                        <option value="Orange">Orange</option>
+                        <option value="Green">Green</option>
+                        <option value="Beige">Beige</option>
+                        <option value="Brown">Brown</option>
+                        <option value="Black">Black</option>
+                        <option value="White">White</option>
+                        <option value="Grey">Grey</option>
+                        <option value="Multi-color">Multi-color</option>
+                    </select>
                 </div>
 
                 <div class="form-group">

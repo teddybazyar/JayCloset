@@ -83,7 +83,7 @@ try {
     
     // Handle image uploads if any
     if (isset($_FILES['itemImages']) && !empty($_FILES['itemImages']['name'][0])) {
-        $uploadDir = "../images/items/" . $itemID . "/";
+        $uploadDir = "../../images/items/" . $itemID . "/";
         
         if (!is_dir($uploadDir)) {
             mkdir($uploadDir, 0755, true);

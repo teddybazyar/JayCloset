@@ -56,7 +56,7 @@ try {
     jayclosetdb::executeSQL($deleteSql, $deleteParams);
     
     // Delete associated images directory
-    $imageDir = "../images/items/" . $itemID . "/";
+    $imageDir = "../../images/items/" . $itemID . "/";
     if (is_dir($imageDir)) {
         $files = glob($imageDir . '*');
         foreach ($files as $file) {

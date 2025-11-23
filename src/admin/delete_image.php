@@ -25,17 +25,28 @@ if (!isset($_SESSION["LoginStatus"]) || $_SESSION["LoginStatus"] != "YES" || !is
 
 // Get parameters
 $itemID = isset($_GET['id']) ? trim($_GET['id']) : null;
-$imageNum = isset($_GET['img']) ? intval($_GET['img']) : null;
+$imageIdentifier = isset($_GET['img']) ? trim($_GET['img']) : null;
 
-if (!$itemID || !$imageNum) {
+if (!$itemID || !$imageIdentifier) {
     $_SESSION['error_message'] = "Invalid parameters.";
     header("Location: ../closet.php");
     exit;
 }
 
-// Build image path
-$imagePath = "../images/items/" . $itemID . "/" . $itemID . "-" . $imageNum . ".png";
-// Should I allow additional images? Like .jpg, etc.
+// Build image path based on identifier type
+$imageDir = "../../images/items/" . $itemID . "/";
+
+// Check if it's a number (standard format) or a filename
+if (is_numeric($imageIdentifier)) {
+    $imagePath = $imageDir . $itemID . "-" . $imageIdentifier . ".png";
+    // Also check for jpg
+    if (!file_exists($imagePath)) {
+        $imagePath = $imageDir . $itemID . "-" . $imageIdentifier . ".jpg";
+    }
+} else {
+    // It's a filename
+    $imagePath = $imageDir . $imageIdentifier;
+}
 
 // Check if file exists and delete it
 if (file_exists($imagePath)) {
@@ -45,7 +56,7 @@ if (file_exists($imagePath)) {
         $_SESSION['error_message'] = "Failed to delete image file.";
     }
 } else {
-    $_SESSION['error_message'] = "Image file not found.";
+    $_SESSION['error_message'] = "Image file not found: " . htmlspecialchars(basename($imagePath));
 }
 
 // Redirect back to edit page
