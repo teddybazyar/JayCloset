@@ -29,7 +29,7 @@ require_once "../includes/Footer.php";
 
 // Custom navbar links for admin
 $adminNavLinks = [
-    'Home' => ['url' => '../index.php', 'icon' => 'fas fa-home'],
+    'Admin' => ['url' => 'admin.php', 'icon' => 'fas fa-home'],
     'Closet' => ['url' => '../closet.php', 'icon' => 'fa fa-list'],
     'Users' => ['url' => 'users.php', 'icon' => 'fas fa-users'],
     'Logout' => ['url' => '../login/logout.php', 'icon' => 'fas fa-sign-out-alt']
@@ -56,7 +56,7 @@ $footer = new Footer("Jay's Closet - Admin Dashboard");
     
     <div class="p">
         
-        <div style="margin-top: -4rem;">
+        <div style="margin-top: 2rem;">
             <div style="display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap; margin-top: 1.5rem;">
                 <div style="background: #f8f9fa; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); text-align: center; min-width: 250px; transition: transform 0.2s ease;">
                     <a href="users.php" style="text-decoration: none; color: #0984e3; font-size: 1.2rem; font-weight: 600;">

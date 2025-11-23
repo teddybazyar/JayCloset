@@ -31,7 +31,7 @@ require_once "../includes/database_functions.php";
 
 // Custom navbar links for admin
 $adminNavLinks = [
-    'Home' => ['url' => '../index.php', 'icon' => 'fas fa-home'],
+    'Admin' => ['url' => 'admin.php', 'icon' => 'fas fa-home'],
     'Closet' => ['url' => '../closet.php', 'icon' => 'fa fa-list'],
     'Users' => ['url' => 'users.php', 'icon' => 'fas fa-users'],
     'Logout' => ['url' => '../login/logout.php', 'icon' => 'fas fa-sign-out-alt']

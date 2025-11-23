@@ -51,6 +51,7 @@ if (empty($_SESSION['csrf_token'])) {
             min-height: 100vh;
             background: #f5f6fa;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            padding: 20px 0;
         }
 
         .sheet {
@@ -59,6 +60,8 @@ if (empty($_SESSION['csrf_token'])) {
             justify-content: center;
             align-items: center;
             padding: 20px;
+            margin-top: 550px;
+            margin-bottom: 40px;
         }
 
         .container {

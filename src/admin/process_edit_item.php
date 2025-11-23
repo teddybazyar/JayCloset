@@ -49,13 +49,14 @@ if (!$originalItemID || !$description || !$color || !$size || !$gender || !$cate
 }
 
 // Update item in database
-$updateSql = "UPDATE descript SET 
-              description_of_item = :desc,
-              color = :color,
-              size = :size,
-              gender = :gender,
-              categories = :cat
-              WHERE itemID = :id";
+$updateSql = 
+    "UPDATE descript SET 
+    description_of_item = :desc,
+    color = :color,
+    size = :size,
+    gender = :gender,
+    categories = :cat
+    WHERE itemID = :id";
 
 $updateParams = [
     ":desc" => $description,

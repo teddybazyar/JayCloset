@@ -32,13 +32,13 @@
         public function display() {
             // Determine the correct path to the logo based on current directory
             $currentPath = $_SERVER['PHP_SELF'];
-            $logoPath = '../images/Teams&Logo/JayClosetLogo.png';
+            $logoPath = 'images/Teams&Logo/JayClosetLogo.png';
 
             // If we're in the admin or login folder, adjust the path
             if (strpos($currentPath, '/admin/') !== false) {
-                $logoPath = '../images/Teams&Logo/JayClosetLogo.png';
+                $logoPath = '../../images/Teams&Logo/JayClosetLogo.png';
             } elseif (strpos($currentPath, '/login/') !== false) {
-                $logoPath = '../images/Teams&Logo/JayClosetLogo.png';
+                $logoPath = '../../images/Teams&Logo/JayClosetLogo.png';
             } else {
                 // We're in the root directory
                 $logoPath = '../images/Teams&Logo/JayClosetLogo.png';

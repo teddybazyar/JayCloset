@@ -33,7 +33,7 @@ if (empty($_SESSION['csrf_token'])) {
 
 // Custom navbar links for admin
 $adminNavLinks = [
-    'Home' => ['url' => '../index.php', 'icon' => 'fas fa-home'],   // Want to change this to 'Admin Dashboard' ../admin/admin.php
+    'Admin' => ['url' => 'admin.php', 'icon' => 'fas fa-home'],
     'Closet' => ['url' => '../closet.php', 'icon' => 'fa fa-list'],
     'Users' => ['url' => 'users.php', 'icon' => 'fas fa-users'],
     'Logout' => ['url' => '../login/logout.php', 'icon' => 'fas fa-sign-out-alt']

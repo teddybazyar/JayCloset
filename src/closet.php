@@ -15,7 +15,7 @@ $isAdmin = (isset($_SESSION["ADMIN"]) && $_SESSION["ADMIN"] == 1) ? true : false
 // Set navbar links based on admin status
 if ($isAdmin) {
     $navLinks = [
-        'Home' => ['url' => 'index.php', 'icon' => 'fas fa-home'],
+        'Admin' => ['url' => 'admin/admin.php', 'icon' => 'fas fa-home'],
         'Closet' => ['url' => 'closet.php', 'icon' => 'fa fa-list'],
         'Users' => ['url' => 'admin/users.php', 'icon' => 'fas fa-users'],
         'Logout' => ['url' => 'login/logout.php', 'icon' => 'fas fa-sign-out-alt']
