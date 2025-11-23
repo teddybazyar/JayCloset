@@ -210,7 +210,12 @@ $allItems = jayclosetdb::getDataFromSQL($getItemsSQL);
                         }
                     ?>
                     <img src="<?= htmlspecialchars($clothesImgPath) ?>" class='item-image'>
-                    <h3><?= htmlspecialchars($row["description_of_item"]) ?></h3>
+                    <h3>
+                        <a href="item.php?id=<?= urlencode($row['itemID']) ?>">
+                            <?= htmlspecialchars($row['description_of_item']) ?>
+                        </a>
+                    </h3>
+
                     <p><strong>Color: </strong><?= htmlspecialchars($row["color"]) ?></p>
                     <p><strong>Size: </strong><?= htmlspecialchars($row["size"]) ?></p>
                     <p><strong>Gender: </strong><?= htmlspecialchars($row["gender"]) ?></p>
