@@ -36,11 +36,11 @@ $footer =new Footer("Jay Closet 2025");
           <div class="team-members">
             <div class="card">
               <div class="card-left">
-                <img src="" alt="" class='profile-pic'>
-                <h2>Staff Member</h2>
+                <img src="/JayCloset/images/Teams&Logo/Hannah_Photo_2.jpg" alt="Hannah" class='profile-pic'>
+                <h2>Hannah</h2>
               </div>
               <div class="card-right">
-                <p>Insert bio and contact information here.</p>
+                <!-- <p>Insert bio and contact information here.</p> -->
               </div>
             </div>
 
@@ -50,7 +50,7 @@ $footer =new Footer("Jay Closet 2025");
                 <h2>Staff Member</h2>
               </div>
               <div class="card-right">
-                <p> Insert bio and contact information here.</p>
+                <!-- <p> Insert bio and contact information here.</p> -->
               </div>
             </div>
 
@@ -60,7 +60,7 @@ $footer =new Footer("Jay Closet 2025");
                 <h2>Staff Member</h2>
               </div>
               <div class="card-right">
-                <p>Insert bio and contact information here.</p>
+                <!-- <p>Insert bio and contact information here.</p> -->
               </div>
             </div>
           </div>
@@ -75,8 +75,7 @@ $footer =new Footer("Jay Closet 2025");
             JayCloset was founded by four members from CS 341 Software Engineering class of Fall 2025. See below more info!
             </p>
           </div>     
-          <!-- TO-DO: Make Founding Team Smaller, add cards for student Employees and staff on top.. 
-           add space for their contact information.  -->
+
           <div class="team-members">
             <div class="card">
               <div class="card-left">
@@ -84,7 +83,7 @@ $footer =new Footer("Jay Closet 2025");
                 <h2>Teddy (Farnaz) Bazyar</h2>
               </div>
               <div class="card-right">
-                <p>Insert bio here</p>
+                <!-- <p>Insert bio here</p> -->
               </div>
             </div>
 
@@ -104,7 +103,7 @@ $footer =new Footer("Jay Closet 2025");
                 <h2>Isabella La Face</h2>
               </div>
               <div class="card-right">
-                <p>Insert bio here</p>
+                <!-- <p>Insert bio here</p> -->
               </div>
             </div>
 

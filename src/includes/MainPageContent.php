@@ -1,32 +1,32 @@
 <?php
+// <div class="text">Caption Two</div>
 
 class MainPageContent{
-// TO-DO: add info sent from Career Closet
     static function render() {
         return '<section id="welcome">
             <div class="h1">
                     <h1> Jay Closet is Coming Soon! </h1>
             </div>
-            <div class="p">
-                <p>
-                    JayCloset is Elizabethtown College\'s Career Closet! If students are in need of business casual clothing, whether for an interview or a meet and greet, this website is the place to go. Students can create an account and reserve clothing in the library catalog.
-                </p>
+            <div class="p" style="background-color: #E1261C; box-shadow: 0 10px 10px rgba(0,0,0,0.15);">
+                <h3>
+                   Jay Closet is Elizabethtown College\'s Career Closet! If students are in need of business casual clothing, whether for an interview or a meet and greet, this website is the place to go. Students can create an account and reserve clothing in the library catalog.
+                </h3>
             </div>
+            <br> <br> <br> <br> <br>
             <div class="slideshow-container">
             <div class="mySlides fade">
                 <div class="numbertext">1 / 3</div>
-                <img src="/JayCloset/images/Teams&Logo/coming_soon_slideshow_icon.png" alt="Slide 1" style="width:100%">
-                <div class="text">Caption Text</div>
+                <img src="/JayCloset/images/Teams&Logo/careerclosetlogo.png" alt="Slide 1" style="width:100%">
             </div>
             <div class="mySlides fade">
                 <div class="numbertext">2 / 3</div>
-                <img src="/JayCloset/images/Teams&Logo/coming_soon_slideshow_icon.png" alt="Slide 2" style="width:100%">
-                <div class="text">Caption Two</div>
+                <img src="/JayCloset/images/Teams&Logo/CCE.LOGO.horizontal1.png" alt="Slide 2" style="width:100%">
+                
             </div>
             <div class="mySlides fade">
                 <div class="numbertext">3 / 3</div>
                 <img src="/JayCloset/images/Teams&Logo/coming_soon_slideshow_icon.png" alt="Slide 3" style="width:100%">
-                <div class="text">Caption Three</div>
+
             </div>
                 <!-- Next and previous buttons -->
                 <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
@@ -55,22 +55,34 @@ class MainPageContent{
             <br> <br> <br> <br> <br>
             <div class="row">
             <div class="column" style="background-color:#aaa;">
-                <h2>Shirts</h2>
-                <p>item ex. 1.
-                    <img src="" alt="" class="">
+                <a href="/JayCloset/src/closet.php" style="display:block;color:inherit;text-decoration:none;">
+                <br>
+                <h1><center>Shirts</center></h1>
+                <p>
+                    <br>
+                    <img src="/JayCloset/images/items/127/127-1.png" alt="Shirt Ref" class="main-item-image">
                 </p>
+                </a>
             </div>
             <div class="column" style="background-color:#bbb;">
-                <h2>Pants</h2>
-                <p>item ex. 2.
-                     <img src="" alt="" class="">
+                <a href="/JayCloset/src/closet.php" style="display:block;color:inherit;text-decoration:none;">
+                <br>
+                <h1><center>Pants</center></h1>
+                <p>
+                    <br>
+                    <img src="/JayCloset/images/items/108/108-3.png" alt="Pant Ref" class="main-item-image">
                 </p>
+                </a>
             </div>
             <div class="column" style="background-color:#ccc;">
-                <h2>Shoes</h2>
-                <p>item ex. 3.
-                    <img src="" alt="" class="">
+                <a href="/JayCloset/src/closet.php" style="display:block;color:inherit;text-decoration:none;">
+                <br>
+                <h1><center>Shoes</center></h1>
+                <p>
+                    <br>
+                    <img src="/JayCloset/images/items/120/120-1.png" alt="Shoe Ref" class="main-item-image">
                 </p>
+                </a>
             </div>
             </div>
             <br> <br> <br> <br> <br>
@@ -101,7 +113,7 @@ class MainPageContent{
                     or one-time projects, the CCCE offers all students meaningful 
                     opportunities to engage in partnership with communities, reflect 
                     deeply, and grow as <strong>compassionate leaders</strong> prepared to advance 
-                    <strong>Elizabethtown College\'s mission</strong>and contribute to a more just and 
+                    <strong>Elizabethtown College\'s mission</strong> and contribute to a more just and 
                     engaged society.
                     <br> <br>
                     Learn more at: <a href="https://etown.edu/centers/community-civic">etown.edu/centers/community-civic</a>
@@ -110,8 +122,8 @@ class MainPageContent{
                 </p>
             </div>
             <div class = "right-leaning">
-                <br>
-                <p> picture of employee </p>
+                <a href="/JayCloset/src/about.php" style="display:block;color:inherit;text-decoration:none;">
+                <p><img src="/JayCloset/images/Teams&Logo/Hannah_Photo_2.jpg" alt="Employee Photo" class="employee-photo"></p>
             </div>
             <br> <br> <br> <br> <br>
             <br> <br> <br> <br> <br>

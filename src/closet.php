@@ -4,6 +4,8 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
+// Add collapsable filter button for filters.
+
 require_once __DIR__ . '/includes/Navbar.php';
 require_once __DIR__ . '/includes/Footer.php';
 require_once __DIR__ . '/includes/db_cred.php';

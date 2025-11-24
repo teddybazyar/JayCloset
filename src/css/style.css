@@ -141,8 +141,7 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     margin: 0;
     min-height: 100vh;
-    padding-top: 150px;
-    
+    padding-top: 150px;  
 }
 
 .h1 {
@@ -183,11 +182,11 @@ div.card { /* also used for div in index home page */
     max-width: 1200px;
     background-color: white;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  padding: 16px;
+    padding: 16px;
     box-sizing: border-box;
     display: flex;
     flex-direction: row;
-    align-items: center; /* to put bio at the center */
+    align-items: center; 
     margin-left: 0; 
 }
 
@@ -363,8 +362,6 @@ div.card-right p {
 
 /* index/home page */
 
-/* any padding & border added will be 
-included inside of specified width & height */
 * {box-sizing:border-box}
 
 .slideshow-container {
@@ -419,7 +416,6 @@ included inside of specified width & height */
   top: 0;
 }
 
-/* The dots/bullets/indicators */
 .dot {
   cursor: pointer;
   height: 15px;
@@ -456,12 +452,15 @@ included inside of specified width & height */
 .column {
   flex: 0 0 calc(25% - 15px); /* four columns with room for gaps */
   min-width: 200px;
-  height: 500px;
+  height: 450px;
   box-sizing: border-box;
   border-radius: 6px;
   box-shadow: 0 6px 12px rgba(0,0,0,0.75); /* simple, subtle shadow */
   padding: 16px;
+  transition: transform .18s ease, box-shadow .18s ease;
 }
+
+.column:hover { transform: translateY(-6px); box-shadow: 0 12px 28px rgba(0,0,0,0.12); }
 
 .row {
   display: flex;
@@ -491,7 +490,49 @@ div.right-leaning {
   background: #C8C8C8;
   box-shadow: 0 6px 12px rgba(0,0,0,0.75); /* simple, subtle shadow */
   padding: 16px;
+  text-align: left; /* ensure content inside is left aligned */
 }
+
+.main-item-image {
+  width: 75%;
+  max-width: 320px;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 8px;
+  display: block;
+  margin: 0.5rem auto;
+}
+
+.employee-photo {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+  margin: 0.25rem auto;
+}
+
+div.right-leaning .employee-photo {
+  margin: 0 12px 0 0;
+  float: left;
+  display: block;
+}
+
+.right-leaning .employee-photo {
+  transition: transform .18s ease, box-shadow .18s ease;
+  cursor: pointer;
+}
+
+.right-leaning .employee-photo:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+}
+
+@media (max-width: 700px) {
+  .main-item-image { width: 90%; height: auto; max-width: none; }
+  .employee-photo { width: 100px; height: 100px; }
+}
+
 
 /* closet.php */
 .item-container {
@@ -563,9 +604,6 @@ div.right-leaning {
     margin-bottom: 10px;
 }
 
-
-
-/* Responsive: stack and space out the two large divs at the bottom of the main page */
 @media (max-width: 768px) {
   div.rounded-box,
   div.right-leaning {
@@ -580,14 +618,11 @@ div.right-leaning {
     border-radius: 16px; 
   }
 
-  /* clear separation when the two blocks appear one after the other */
   div.rounded-box + div.right-leaning {
     margin-top: 28px;
   }
 }
 
-
-/* Minimal Topnav styles (simple hamburger) */
 .topnav {
   overflow: hidden;
   background-color: #333;
