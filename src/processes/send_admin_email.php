@@ -28,3 +28,4 @@ function send_admin_email($orderID, $user, array $items, $orderInfo = null) {
 
     @mail($adminEmail, $subject, $message, $headers);
 }
+?>

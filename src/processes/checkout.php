@@ -43,15 +43,13 @@ try {
     jayclosetdb::startTransaction();
 
     $qty = count($items);
-    $sqlInsertOrder = "INSERT INTO orders (ID, qty, time_placed, expiration, active_order) VALUES (?, ?, NOW(), DATE_ADD(NOW(), INTERVAL 7 DAY), 1)";
+    
+    $sqlInsertOrder = "INSERT INTO orders (ID, qty, time_placed, expiration, active_order) 
+                       VALUES (?, ?, NOW(), DATE_ADD(NOW(), INTERVAL 7 DAY), 1)";
     jayclosetdb::executeSQL($sqlInsertOrder, [$userId, $qty], true);
-    $orderID = jayclosetdb::executeSQL("SELECT LAST_INSERT_ID() AS id", [], true);
-    if (is_string($orderID) || is_numeric($orderID)) {
-        $orderID = (int)$orderID;
-    } else {
-        $row = jayclosetdb::getDataFromSQL("SELECT LAST_INSERT_ID() as id");
-        $orderID = (int)$row[0]['id'];
-    }
+    
+    $result = jayclosetdb::getDataFromSQL("SELECT LAST_INSERT_ID() as id");
+    $orderID = (int)$result[0]['id'];
 
     $sqlInsertItem = "INSERT INTO items (itemID, orderID, sku) VALUES (?, ?, ?)";
     $sqlUpdateReserved = "UPDATE descript SET reserved = 1 WHERE itemID = ?";
@@ -61,7 +59,6 @@ try {
         $sku = $prod->getSKU();
 
         jayclosetdb::executeSQL($sqlInsertItem, [$itemID, $orderID, $sku]);
-
         jayclosetdb::executeSQL($sqlUpdateReserved, [$itemID]);
     }
 
@@ -83,19 +80,16 @@ try {
         ];
     }
 
-    // send confirmation emails
     send_user_email($user['email'], $user['fname'] ?? '', $user['lname'] ?? '', $orderID, $itemDetails, $orderInfo);
-    // admin email - change admin address inside the function or pass it if you prefer
     send_admin_email($orderID, $user, $itemDetails, $orderInfo);
 
-    // show confirmation page or redirect
-    header("Location: order_confirmation.php?orderID=" . urlencode($orderID));
+    header("Location: ../order_confirmation.php?orderID=" . urlencode($orderID));
     exit();
 
 } catch (Exception $e) {
     jayclosetdb::rollbackTransaction();
     error_log("Checkout failed: " . $e->getMessage());
-    echo "An error occurred during checkout. Please try again later.";
+    error_log("Stack trace: " . $e->getTraceAsString());
     exit();
 }
 ?>

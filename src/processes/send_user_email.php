@@ -25,3 +25,4 @@ function send_user_email($toEmail, $fname, $lname, $orderID, array $items, $orde
 
     @mail($toEmail, $subject, $message, $headers);
 }
+?>
