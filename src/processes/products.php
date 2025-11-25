@@ -62,7 +62,7 @@ class Product {
         return $this->size;
     }
 
-    public function getIsReserved(): bool {
+    public function isReserved(): bool {
         return $this->reserved;
     }
 

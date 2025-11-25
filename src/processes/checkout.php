@@ -13,15 +13,24 @@ if (!isset($_SESSION['cart']) || empty($_SESSION['cart']->getItems())) {
 
 $userId = null;
 $user = null;
-if (!empty($_SESSION['user']) && is_array($_SESSION['user']) && isset($_SESSION['user']['ID'])) {
-    $userId = (int)$_SESSION['user']['ID'];
-    $user = $_SESSION['user'];
-} elseif (!empty($_SESSION['user_id'])) {
-    $userId = (int)$_SESSION['user_id'];
-    $u = jayclosetdb::getDataFromSQL("SELECT ID, fname, lname, email FROM users WHERE ID = ?", [$userId]);
-    if (!empty($u)) $user = $u[0];
+// Check for UserID from your login system
+if (isset($_SESSION["UserID"])) {
+    $userId = (int)$_SESSION["UserID"];
+    
+    $userData = jayclosetdb::getDataFromSQL(
+        "SELECT ID, fname, lname, email FROM users WHERE ID = ?", 
+        [$userId]
+    );
+    
+    if (!empty($userData)) {
+        $user = $userData[0];
+    }
 }
 
+if ($userId === null || $user === null) {
+    echo "You must be logged in to checkout. Please <a href='../index.php?page=login'>login</a>.";
+    exit();
+}
 if ($userId === null || $user === null) {
     echo "You must be logged in to checkout. Please <a href='index.php?page=login'>login</a>.";
     exit();
@@ -34,7 +43,7 @@ try {
     jayclosetdb::startTransaction();
 
     $qty = count($items);
-    $sqlInsertOrder = "INSERT INTO orders (ID, qty, time_placed, active_order) VALUES (?, ?, NOW(), 1)";
+    $sqlInsertOrder = "INSERT INTO orders (ID, qty, time_placed, expiration, active_order) VALUES (?, ?, NOW(), DATE_ADD(NOW(), INTERVAL 7 DAY), 1)";
     jayclosetdb::executeSQL($sqlInsertOrder, [$userId, $qty], true);
     $orderID = jayclosetdb::executeSQL("SELECT LAST_INSERT_ID() AS id", [], true);
     if (is_string($orderID) || is_numeric($orderID)) {

@@ -104,6 +104,7 @@ if (is_dir($imageDir)) {
                 <p><strong>Category: </strong><?=htmlspecialchars($itemCategory)?></p>
                 <div class="button-wrapper">
                     <form action="processes/addtocart.php" method="POST">
+                        <input type="hidden" name="itemID" value="<?= $itemID ?>">
                         <button type="submit">Add to Cart</button>
                     </form>
                 </div>

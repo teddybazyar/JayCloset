@@ -45,5 +45,9 @@ class ShoppingCart {
         return $this->items;
     }
 
+    public function isReserved(): bool {
+        return $this->reserved;
+    }
+
 }
 ?>

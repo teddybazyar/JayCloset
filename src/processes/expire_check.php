@@ -84,3 +84,5 @@ foreach ($expiredOrders as $ord) {
         error_log("Failed processing expired order {$orderID}: " . $e->getMessage());
     }
 }
+
+?>

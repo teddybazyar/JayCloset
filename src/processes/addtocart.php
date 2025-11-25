@@ -6,8 +6,17 @@ session_start();
 
 $userId = null;
 $user = null;
+
+if (!empty($_SESSION['UserID'])) {
+    $userId = (int)$_SESSION['UserID'];
+}
+
+if (!empty($_SESSION['email'])) {
+    $user = $_SESSION['email'];
+}
+
 if ($userId === null || $user === null) {
-    echo "You must be logged in to checkout. Please <a href='../index.php?page=login'>login</a>.";
+    echo "You must be logged in to add items to cart. Please <a href='../index.php?page=login'>login</a>.";
     exit();
 }
 

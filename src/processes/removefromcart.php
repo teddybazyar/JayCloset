@@ -1,6 +1,6 @@
 <?php
 require_once __DIR__ . '/cart.php';
-require_once __DIR__ . '/product.php';
+require_once __DIR__ . '/products.php';
 session_start();
 
 if (!isset($_SESSION['cart'])) {

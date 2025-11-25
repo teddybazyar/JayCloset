@@ -128,7 +128,7 @@ body {
                             <td><?= htmlspecialchars($item->getSize()) ?></td>
                             <td><?= $item->isReserved() ? 'Yes' : 'No' ?></td>
                             <td>
-                                <form method="POST" action="remove_from_cart.php" class="remove-form">
+                                <form method="POST" action="processes/removefromcart.php" class="remove-form">
                                     <input type="hidden" name="itemID" value="<?= $item->getItemID() ?>">
                                     <button type="submit" class="remove-btn">Remove</button>
                                 </form>
@@ -139,8 +139,8 @@ body {
             </table>
 
             <div style="display: flex; justify-content: space-between; margin-top: 25px;">
-                <a href="shop.php" class="btn-secondary">Continue Shopping</a>
-                <a href="checkout.php" class="btn-primary">Checkout</a>
+                <a href="closet.php" class="btn-secondary">Continue Shopping</a>
+                <a href="processes/checkout.php" class="btn-primary">Checkout</a>
             </div>
         <?php endif; ?>
     </main>
