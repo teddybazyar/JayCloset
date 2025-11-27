@@ -568,7 +568,7 @@ $footer = new Footer("Jay Closet 2025");
                                 <i class="fas fa-code"></i> Co-Founder
                             </span>
                         </div>
-                        <p>Computer Science student with a concentration in cyebrsecurity passionate about creating technology solutions that help the campus community.</p>
+                        <p>Computer Science student with a concentration in cybersecurity passionate about creating technology solutions that help the campus community.</p>
                     </div>
                 </div>
 
