@@ -209,7 +209,7 @@ $allItems = jayclosetdb::getDataFromSQL($getItemsSQL);
 
 <?php if ($isAdmin): ?>
     <div class="admin-notice">
-        <span class="admin-badge">ADMIN MODE</span>
+        <span class="admin-badge"><i class="fas fa-user-shield"></i>ADMIN MODE</span>
         <span> - Edit Controls Enabled</span>
     </div>
 <?php endif; ?>
@@ -217,21 +217,25 @@ $allItems = jayclosetdb::getDataFromSQL($getItemsSQL);
 <?php
 // Display success message
 if (isset($_SESSION["success_message"])) {
-    echo '<div class="message-success">' . htmlspecialchars($_SESSION["success_message"]) . '</div>';
+    echo '<div class="message-success"><i class="fas fa-check-circle"></i>' . htmlspecialchars($_SESSION["success_message"]) . '</div>';
     unset($_SESSION["success_message"]);
 }
 
 // Display error message
 if (isset($_SESSION["error_message"])) {
-    echo '<div class="message-error">' . htmlspecialchars($_SESSION["error_message"]) . '</div>';
+    echo '<div class="message-error"><i class="fas fa-exclamation-circle"></i>' . htmlspecialchars($_SESSION["error_message"]) . '</div>';
     unset($_SESSION["error_message"]);
 }
 ?>
 
-<div class="sidenav">
+<button class="filter-toggle" onclick="toggleFilters()">
+    <i class="fas fa-filter"></i>
+</button>
+
+<div class="sidenav" id="filterSidebar">
     <form method="GET">
 
-        <h4>Search by Gender</h4>
+        <h4><i class="fas fa-venus-mars"></i>Gender</h4>
         <?php
             $genders = ["All", "Men", "Women", "Unisex"];
             foreach ($genders as $g):
@@ -244,7 +248,7 @@ if (isset($_SESSION["error_message"])) {
         <?php endforeach; ?>
         <br>
 
-        <h4>Search by Category</h4>
+        <h4><i class="fas fa-tags"></i>Category</h4>
         <?php
             $categories = [
                 "All","Tops/Blouse","Sweater/Vest/Cardigan",
@@ -260,7 +264,7 @@ if (isset($_SESSION["error_message"])) {
         <?php endforeach; ?>
         <br>
 
-        <h4>Search by Size</h4>
+        <h4><i class="fas fa-ruler"></i>Size</h4>
         <?php
             $sizes = ["All","XS","S","M","L","XL","XXL","5","6","7","8","9","10","11","12"];
             foreach ($sizes as $s):
@@ -273,7 +277,7 @@ if (isset($_SESSION["error_message"])) {
         <?php endforeach; ?>
         <br>
 
-        <h4>Search by Color</h4>
+        <h4><i class="fas fa-palette"></i>Color</h4>
         <?php
             $colors = ["All","Red","Yellow","Pink","Blue","Purple","Orange","Green","Beige","Brown","Black","White","Grey","Multi-color"];
             foreach ($colors as $clr):
@@ -286,8 +290,8 @@ if (isset($_SESSION["error_message"])) {
         <?php endforeach; ?>
         <br>
 
-        <button type="submit" class="apply-btn">Apply Filters</button>
-        <button type="submit" name="reset" value="1" class="reset-btn">Reset</button>
+        <button type="submit" class="apply-btn"><i class="fas fa-check"></i>Apply Filters</button>
+        <button type="submit" name="reset" value="1" class="reset-btn"><i class="fas fa-redo"></i>Reset</button>
 
     </form>
 </div>
@@ -298,22 +302,21 @@ if (isset($_SESSION["error_message"])) {
     <!-- display filter -->
     <!-- I think I can shorten this lines -->
     <h1>
-        <?php echo "Result"; ?>
+        <i class="fas fa-store"></i>
+        <?php echo "Browse Closet"; ?>
     </h1>
     <h2>
         <?php
-        // Show All
         if ($_SESSION['gender'] == 'All' &&
             $_SESSION['category'] == 'All' &&
             $_SESSION['size'] == 'All' &&
             $_SESSION['color'] == 'All') {
-
-                echo "All Items";
-        
+                echo '<i class="fas fa-list"></i> Showing All Items (' . count($allItems) . ' results)';
         } else {
-            echo "Gender: " . htmlspecialchars($_SESSION['gender']) . ', ';
-            echo "Category: " . htmlspecialchars($_SESSION['category']) . ', ';
-            echo "Size: " . htmlspecialchars($_SESSION['size']) . ', ';
+            echo '<i class="fas fa-filter"></i> Filtered Results (' . count($allItems) . ' items) | ';
+            echo "Gender: " . htmlspecialchars($_SESSION['gender']) . ' • ';
+            echo "Category: " . htmlspecialchars($_SESSION['category']) . ' • ';
+            echo "Size: " . htmlspecialchars($_SESSION['size']) . ' • ';
             echo "Color: " . htmlspecialchars($_SESSION['color']);
         }
         ?>
@@ -330,30 +333,34 @@ if (isset($_SESSION["error_message"])) {
                             $clothesImgPath = $clothesImgDir . "missingImages.png";
                         }
                     ?>
-                    <img src="<?= htmlspecialchars($clothesImgPath) ?>" class='item-image'>
+                    <img src="<?= htmlspecialchars($clothesImgPath) ?>" class='item-image' alt="<?= htmlspecialchars($row['description_of_item']) ?>">
                     <h3>
                         <a href="item.php?id=<?= urlencode($row['itemID']) ?>">
                             <?= htmlspecialchars($row['description_of_item']) ?>
                         </a>
                     </h3>
 
-                    <p><strong>Color: </strong><?= htmlspecialchars($row["color"]) ?></p>
-                    <p><strong>Size: </strong><?= htmlspecialchars($row["size"]) ?></p>
-                    <p><strong>Gender: </strong><?= htmlspecialchars($row["gender"]) ?></p>
-                    <p><strong>Category: </strong><?= htmlspecialchars($row["categories"]) ?></p>
+                    <p><i class="fas fa-palette"></i> <strong>Color:</strong> <?= htmlspecialchars($row["color"]) ?></p>
+                    <p><i class="fas fa-ruler"></i> <strong>Size:</strong> <?= htmlspecialchars($row["size"]) ?></p>
+                    <p><i class="fas fa-venus-mars"></i> <strong>Gender:</strong> <?= htmlspecialchars($row["gender"]) ?></p>
+                    <p><i class="fas fa-tag"></i> <strong>Category:</strong> <?= htmlspecialchars($row["categories"]) ?></p>
 
                     <?php if ($isAdmin === true): ?>
-                        <!--Admin Controls-->
                         <div class="admin-controls">
-                            <button type="button" class="admin-btn btn-edit-item" onclick="editItem('<?= $row['itemID'] ?>')">Edit</button>
-                            <button type="button" class="admin-btn btn-delete-item" onclick="deleteItem('<?= $row['itemID'] ?>', '<?= htmlspecialchars($row['description_of_item']) ?>')">Delete</button>
+                            <button type="button" class="admin-btn btn-edit-item" onclick="editItem('<?= $row['itemID'] ?>')">
+                                <i class="fas fa-edit"></i> Edit
+                            </button>
+                            <button type="button" class="admin-btn btn-delete-item" onclick="deleteItem('<?= $row['itemID'] ?>', '<?= htmlspecialchars($row['description_of_item']) ?>')">
+                                <i class="fas fa-trash"></i> Delete
+                            </button>
                         </div>
                     <?php else: ?>
-                        <!--Regular User Controls-->
                         <div class="button-wrapper">
                             <form action="processes/addtocart.php" method="POST">
                                 <input type="hidden" name="itemID" value="<?= $row['itemID'] ?>">
-                                <button type="submit">Add to Cart</button>
+                                <button type="submit">
+                                    <i class="fas fa-shopping-cart"></i> Add to Cart
+                                </button>
                             </form>
                         </div>
                     <?php endif; ?>
@@ -361,32 +368,55 @@ if (isset($_SESSION["error_message"])) {
             <?php endforeach; ?>
         </div>
     <?php else: ?>
-        <p>No items found.</p>
+        <div class="no-items">
+            <i class="fas fa-inbox"></i>
+            <h3>No Items Found</h3>
+            <p>Try adjusting your filters to see more results.</p>
+        </div>
     <?php endif; ?>
-
-</div> <!-- END MAIN -->
+</div>
 
 <?php if ($isAdmin): ?>
-    <button class="add-item-btn" onclick="addNewItem()">+ Add New Item</button>
+    <button class="add-item-btn" onclick="addNewItem()">
+        <i class="fas fa-plus"></i> Add New Item
+    </button>
 <?php endif; ?>
 
 <?= $footer->render(); ?>
 
-    <script src="js/hamburger.js" defer></script>
-    <script>
-        function editItem(itemId) {
-            window.location.href = 'admin/edit_item.php?id=' + itemId;
-        }
+<script src="js/hamburger.js" defer></script>
+<script>
+    function editItem(itemId) {
+        window.location.href = 'admin/edit_item.php?id=' + itemId;
+    }
 
-        function deleteItem(itemId, itemName) {
-            if (confirm('Are you sure you want to delete "' + itemName + '"? This action cannot be undone.')) {
-                window.location.href = 'admin/delete_item.php?id=' + itemId;
-            }
+    function deleteItem(itemId, itemName) {
+        if (confirm('Are you sure you want to delete "' + itemName + '"? This action cannot be undone.')) {
+            window.location.href = 'admin/delete_item.php?id=' + itemId;
         }
+    }
 
-        function addNewItem() {
-            window.location.href = 'admin/add_item.php';
+    function addNewItem() {
+        window.location.href = 'admin/add_item.php';
+    }
+
+    function toggleFilters() {
+        const sidebar = document.getElementById('filterSidebar');
+        sidebar.classList.toggle('open');
+    }
+
+    // Close sidebar when clicking outside on mobile
+    document.addEventListener('click', function(event) {
+        const sidebar = document.getElementById('filterSidebar');
+        const toggle = document.querySelector('.filter-toggle');
+        
+        if (window.innerWidth <= 768 && 
+            sidebar.classList.contains('open') && 
+            !sidebar.contains(event.target) && 
+            !toggle.contains(event.target)) {
+            sidebar.classList.remove('open');
         }
-    </script>
+    });
+</script>
 </body>
 </html>

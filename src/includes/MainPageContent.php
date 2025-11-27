@@ -1,134 +1,197 @@
 <?php
-// <div class="text">Caption Two</div>
 
 class MainPageContent{
     static function render() {
-        return '<section id="welcome">
-            <div class="h1">
-                    <h1> Jay Closet is Coming Soon! </h1>
+        return '
+        <section id="welcome">
+            <!-- Hero Section -->
+            <div class="hero-section">
+                <div class="h1">
+                    <h1>
+                        <i class="fas fa-star"></i> 
+                        Jay Closet is Coming Soon! 
+                        <i class="fas fa-star"></i>
+                    </h1>
+                </div>
             </div>
-            <div class="p" style="background-color: #E1261C; box-shadow: 0 10px 10px rgba(0,0,0,0.15);">
+
+            <!-- Mission Statement -->
+            <div class="mission-box">
                 <h3>
-                   Jay Closet is Elizabethtown College\'s Career Closet! If students are in need of business casual clothing, whether for an interview or a meet and greet, this website is the place to go. Students can create an account and reserve clothing in the library catalog.
+                    <i class="fas fa-graduation-cap"></i> 
+                    Jay Closet is Elizabethtown College\'s Online Career Closet Website! If students are in need of business casual clothing, whether for an interview or a meet and greet, this website is the place to go. Students can create an account and reserve clothing in the library catalog.
                 </h3>
             </div>
-            <br> <br> <br> <br> <br>
-            <div class="slideshow-container">
-            <div class="mySlides fade">
-                <div class="numbertext">1 / 3</div>
-                <img src="/JayCloset/images/Teams&Logo/careerclosetlogo.png" alt="Slide 1" style="width:100%">
-            </div>
-            <div class="mySlides fade">
-                <div class="numbertext">2 / 3</div>
-                <img src="/JayCloset/images/Teams&Logo/CCE.LOGO.horizontal1.png" alt="Slide 2" style="width:100%">
-                
-            </div>
-            <div class="mySlides fade">
-                <div class="numbertext">3 / 3</div>
-                <img src="/JayCloset/images/Teams&Logo/coming_soon_slideshow_icon.png" alt="Slide 3" style="width:100%">
 
-            </div>
-                <!-- Next and previous buttons -->
-                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-                <a class="next" onclick="plusSlides(1)">&#10095;</a>
-            </div>
-            <br>
-            <!-- The dots/circles -->
-            <div style="text-align:center">
-                <span class="dot" onclick="currentSlide(1)"></span>
-                <span class="dot" onclick="currentSlide(2)"></span>
-                <span class="dot" onclick="currentSlide(3)"></span>
-            </div>
-            <br> <br> <br> <br> <br>
-            <br> <br> <br> <br> <br>
-            <br> <br> <br> <br> <br>
-            <div class="card">
-              <p> <strong> Blue Jay Career Closet (BSC 201) </strong>
-                <br> <br>
-                The Blue Jay Career Closet, established in 2022, provides career-ready attire to students. 
-                All students can keep or borrow clothes for future use, ensuring equitable access to 
-                clothing for interviews, internships, and other career related opportunities.
-              </p>
-            </div>
-            <br> <br> <br> <br> <br>
-            <br> <br> <br> <br> <br>
-            <br> <br> <br> <br> <br>
-            <div class="row">
-            <div class="column" style="background-color:#aaa;">
-                <a href="/JayCloset/src/closet.php" style="display:block;color:inherit;text-decoration:none;">
+            <!-- Slideshow Section -->
+            <div class="slideshow-section">
+                <div class="slideshow-container">
+                    <div class="mySlides fade">
+                        <div class="numbertext">1 / 3</div>
+                        <img src="/JayCloset/images/Teams&Logo/careerclosetlogo.png" alt="Career Closet Logo" style="width:100%">
+                    </div>
+                    <div class="mySlides fade">
+                        <div class="numbertext">2 / 3</div>
+                        <img src="/JayCloset/images/Teams&Logo/CCE.LOGO.horizontal1.png" alt="CCE Logo" style="width:100%">
+                    </div>
+                    <div class="mySlides fade">
+                        <div class="numbertext">3 / 3</div>
+                        <img src="/JayCloset/images/Teams&Logo/coming_soon_slideshow_icon.png" alt="Coming Soon" style="width:100%">
+                    </div>
+                    
+                    <a class="prev" onclick="plusSlides(-1)">
+                        <i class="fas fa-chevron-left"></i>
+                    </a>
+                    <a class="next" onclick="plusSlides(1)">
+                        <i class="fas fa-chevron-right"></i>
+                    </a>
+                </div>
                 <br>
-                <h1><center>Shirts</center></h1>
+                <div style="text-align:center">
+                    <span class="dot" onclick="currentSlide(1)"></span>
+                    <span class="dot" onclick="currentSlide(2)"></span>
+                    <span class="dot" onclick="currentSlide(3)"></span>
+                </div>
+            </div>
+
+            <!-- About Career Closet -->
+            <div class="info-card">
                 <p>
-                    <br>
-                    <img src="/JayCloset/images/items/127/127-1.png" alt="Shirt Ref" class="main-item-image">
+                    <strong>
+                        <i class="fas fa-building"></i> 
+                        Blue Jay Career Closet (BSC 201)
+                    </strong>
+                    <br><br>
+                    The Blue Jay Career Closet, established in 2022, provides career-ready attire to students. 
+                    All students can keep or borrow clothes for future use, ensuring equitable access to 
+                    clothing for interviews, internships, and other career related opportunities.
                 </p>
-                </a>
+                <div style="text-align: center; margin-top: 30px;">
+                    <a href="/JayCloset/src/closet.php" class="cta-button">
+                        <i class="fas fa-shopping-bag"></i> 
+                        Browse the Closet
+                    </a>
+                </div>
             </div>
-            <div class="column" style="background-color:#bbb;">
-                <a href="/JayCloset/src/closet.php" style="display:block;color:inherit;text-decoration:none;">
-                <br>
-                <h1><center>Pants</center></h1>
+
+            <!-- Category Section -->
+            <div class="category-section">
+                <h2 class="category-title">
+                    <i class="fas fa-th-large"></i> 
+                    Shop by Category
+                </h2>
+                <div class="row">
+                    <div class="column">
+                        <a href="https://jaycloset.etowndb.com/src/closet.php?gender=All&category=Tops%2FBlouse&size=All&color=All">
+                            <h1>
+                                <i class="fas fa-shirt"></i> 
+                                Shirts
+                            </h1>
+                            <p>
+                                <img src="/JayCloset/images/items/127/127-1.png" alt="Professional Shirts" class="main-item-image">
+                            </p>
+                        </a>
+                    </div>
+                    <div class="column">
+                        <a href="https://jaycloset.etowndb.com/src/closet.php?gender=All&category=Bottoms&size=All&color=All">
+                            <h1>
+                                <i class="fas fa-user-tie"></i> 
+                                Pants
+                            </h1>
+                            <p>
+                                <img src="/JayCloset/images/items/108/108-3.png" alt="Professional Pants" class="main-item-image">
+                            </p>
+                        </a>
+                    </div>
+                    <div class="column">
+                        <a href="https://jaycloset.etowndb.com/src/closet.php?gender=All&category=Shoes&size=All&color=All">
+                            <h1>
+                                <i class="fas fa-shoe-prints"></i> 
+                                Shoes
+                            </h1>
+                            <p>
+                                <img src="/JayCloset/images/items/120/120-1.png" alt="Professional Shoes" class="main-item-image">
+                            </p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CCCE Section -->
+            <div class="ccce-section">
                 <p>
-                    <br>
-                    <img src="/JayCloset/images/items/108/108-3.png" alt="Pant Ref" class="main-item-image">
-                </p>
-                </a>
-            </div>
-            <div class="column" style="background-color:#ccc;">
-                <a href="/JayCloset/src/closet.php" style="display:block;color:inherit;text-decoration:none;">
-                <br>
-                <h1><center>Shoes</center></h1>
-                <p>
-                    <br>
-                    <img src="/JayCloset/images/items/120/120-1.png" alt="Shoe Ref" class="main-item-image">
-                </p>
-                </a>
-            </div>
-            </div>
-            <br> <br> <br> <br> <br>
-            <br> <br> <br> <br> <br>
-            <br> <br> <br> <br> <br>
-            <div class="rounded-box">
-                <br>
-                <p> <strong> Center for Community and Civic Engagement (CCCE) 
-                    located in BSC 247
-                    Educate for Service. Engage with Purpose. </strong>
-                    <br> <br>
+                    <strong>
+                        <i class="fas fa-hands-helping"></i> 
+                        Center for Community and Civic Engagement (CCCE) 
+                        <br>
+                        Located in BSC 247
+                        <br>
+                        Educate for Service. Engage with Purpose.
+                    </strong>
+                    <br><br>
                     The Center for Community and Civic Engagement (CCCE)
                     strengthens Elizabethtown College\'s commitment to learning through service by
                     connecting education with meaningful action. 
                     Through hands-on experiences, reciprocal partnerships, and real-world learning, 
                     the CCCE fosters collaborative opportunities that create positive change—on campus, 
                     in the community, and beyond.
-                    <br> <br>
-                    <strong> Recognized Commitment to Engagement </strong>
-                    <br> <br>
+                    <br><br>
+                    <strong>
+                        <i class="fas fa-award"></i> 
+                        Recognized Commitment to Engagement
+                    </strong>
+                    <br><br>
                     In 2020, Elizabethtown College earned the Carnegie Community Engagement Classification, 
                     a national honor recognizing the College\'s leadership in fostering mutually beneficial 
                     partnerships, civic learning, and community-prioritized initiatives through engaged teaching, scholarship, and service.
-                    <br> <br>
-                    <strong> Get Involved </strong>
-                    <br> <br>
+                    <br><br>
+                    <strong>
+                        <i class="fas fa-users"></i> 
+                        Get Involved
+                    </strong>
+                    <br><br>
                     Whether through community-based academic work, leadership pathways, 
                     or one-time projects, the CCCE offers all students meaningful 
                     opportunities to engage in partnership with communities, reflect 
                     deeply, and grow as <strong>compassionate leaders</strong> prepared to advance 
                     <strong>Elizabethtown College\'s mission</strong> and contribute to a more just and 
                     engaged society.
-                    <br> <br>
-                    Learn more at: <a href="https://etown.edu/centers/community-civic">etown.edu/centers/community-civic</a>
-                    Follow us on Instagram: <a href="https://www.instagram.com/etowncivicengagement/?hl=en">@etowncivicengagement</a>
- 
+                    <br><br>
+                    <i class="fas fa-link"></i> 
+                    Learn more at: <a href="https://etown.edu/centers/community-civic" target="_blank">etown.edu/centers/community-civic</a>
+                    <br>
+                    <i class="fab fa-instagram"></i> 
+                    Follow us on Instagram: <a href="https://www.instagram.com/etowncivicengagement/?hl=en" target="_blank">@etowncivicengagement</a>
                 </p>
             </div>
-            <div class = "right-leaning">
-                <a href="/JayCloset/src/about.php" style="display:block;color:inherit;text-decoration:none;">
-                <p><img src="/JayCloset/images/Teams&Logo/Hannah_Photo_2.jpg" alt="Employee Photo" class="employee-photo"></p>
+
+            <!-- Team Preview -->
+            <div class="team-preview">
+                <h2>
+                    <i class="fas fa-user-friends"></i> 
+                    Meet Our Team
+                </h2>
+                <p style="font-size: 1.1rem; color: #495057; margin: 20px 0;">
+                    The Jay Closet is run by dedicated staff who are here to help you succeed!
+                </p>
+                <a href="/JayCloset/src/about.php" style="display: inline-block; margin: 20px 0;">
+                    <img src="/JayCloset/images/Teams&Logo/Hannah_Photo_2.jpg" alt="Hannah - Staff Member" class="employee-photo">
+                </a>
+                <a href="/JayCloset/src/about.php" style="display: inline-block; margin: 20px 0;">
+                    <img src="/JayCloset/images/Teams&Logo/Nate_photo.jpg" alt="Nate - Staff Member" class="employee-photo">
+                </a>
+                <a href="/JayCloset/src/about.php" style="display: inline-block; margin: 20px 0;">
+                    <img src="/JayCloset/images/Teams&Logo/Brianna_photo.jpg" alt="Brianna - Staff Member" class="employee-photo">
+                </a>
+                <br>
+                <a href="/JayCloset/src/about.php" class="cta-button" style="margin-top: 20px;">
+                    <i class="fas fa-info-circle"></i> 
+                    Learn More About Us
+                </a>
             </div>
-            <br> <br> <br> <br> <br>
-            <br> <br> <br> <br> <br>
-            <br> <br> <br> <br> <br>
-            </section><script src="/JayCloset/src/js/slideshow.js"></script>';
+
+        </section>
+        <script src="/JayCloset/src/js/slideshow.js"></script>';
     }
 }
 
