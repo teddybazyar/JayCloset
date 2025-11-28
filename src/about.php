@@ -602,7 +602,9 @@ $footer = new Footer("Jay Closet 2025");
                                 <i class="fas fa-code"></i> Co-Founder
                             </span>
                         </div>
-                        <!-- <p></p> Bella's Bio :) -->
+                        <p>Hello everyone! My name is Isabella, and I am a Computer Science major with a concentration in cybersecurity in the Class of 2027.</p>
+                        <p>Coming into this field, I’ve encountered plenty of challenges, but each one has pushed me to grow, learn, and stay curious.</p>
+                        <p>I’m excited by the new experiences and opportunities that come with studying cybersecurity, and I hope to support others along the way by sharing what I've learned and encouraging those who are beginning their own journey.</p>
                     </div>
                 </div>
 
