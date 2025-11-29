@@ -279,7 +279,7 @@ if (isset($_SESSION["error_message"])) {
 
         <h4><i class="fas fa-palette"></i>Color</h4>
         <?php
-            $colors = ["All","Red","Yellow","Pink","Blue","Purple","Orange","Green","Beige","Brown","Black","White","Grey","Multi-color"];
+            $colors = ["All","Red","Yellow","Pink","Blue","Purple","Orange","Green","Beige","Brown","Black","White","Gray","Multi-color"];
             foreach ($colors as $clr):
         ?>
         <label>

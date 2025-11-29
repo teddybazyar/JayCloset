@@ -86,7 +86,11 @@ try {
         $uploadDir = "../../images/items/" . $itemID . "/";
         
         if (!is_dir($uploadDir)) {
-            mkdir($uploadDir, 0755, true);
+            if (!mkdir($uploadDir, 0755, true)) {
+                $_SESSION['error_message'] = "Failed to create image directory. Check folder permissions.";
+                header("Location: add_item.php");
+                exit;
+            }
         }
         
         $uploadedCount = 0;
@@ -103,21 +107,29 @@ try {
                     $destination = $uploadDir . $newFileName;
                     
                     if (in_array($fileExtension, ['jpg', 'jpeg'])) {
-                        $image = imagecreatefromjpeg($tmpName);
-                        imagepng($image, $destination);
-                        imagedestroy($image);
+                        $image = @imagecreatefromjpeg($tmpName);
+                        if ($image) {
+                            if (imagepng($image, $destination)) {
+                                imagedestroy($image);
+                                $uploadedCount++;
+                            }
+                        }
                     } else {
-                        move_uploaded_file($tmpName, $destination);
+                        if (move_uploaded_file($tmpName, $destination)) {
+                            $uploadedCount++;
+                        }
                     }
-                    
-                    $uploadedCount++;
                 }
             }
         }
         
-        $_SESSION['success_message'] = "Item added successfully with " . $uploadedCount . " image(s)!";
+        if ($uploadedCount > 0) {
+            $_SESSION['success_message'] = "Item added successfully with " . $uploadedCount . " image(s)!";
+        } else {
+            $_SESSION['success_message'] = "Item added successfully but images failed to upload. Please add images from the edit page.";
+        }
     } else {
-        $_SESSION['success_message'] = "Item added successfully!";
+        $_SESSION['success_message'] = "Item added successfully! Add images from the edit page.";
     }
     
     header("Location: ../closet.php");

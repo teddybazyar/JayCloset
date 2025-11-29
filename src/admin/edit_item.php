@@ -283,17 +283,6 @@ if (is_dir($imageDir)) {
             border-radius: 8px;
         }
 
-        .upload-section {
-            margin-top: 2rem;
-            padding-top: 1.5rem;
-            border-top: 1px solid #dfe6e9;
-        }
-
-        .upload-section h4 {
-            margin-bottom: 1rem;
-            color: #2d3436;
-        }
-
         .file-upload-area {
             border: 2px dashed #dfe6e9;
             border-radius: 8px;
@@ -301,6 +290,7 @@ if (is_dir($imageDir)) {
             text-align: center;
             transition: all 0.3s ease;
             cursor: pointer;
+            margin-top: 1rem;
         }
 
         .file-upload-area:hover {
@@ -377,7 +367,8 @@ if (is_dir($imageDir)) {
 
         <h2>Edit Item Information</h2>
 
-        <form action="process_edit_item.php" method="POST">
+        <!-- SINGLE FORM FOR EVERYTHING -->
+        <form action="process_edit_item.php" method="POST" enctype="multipart/form-data">
             <input type="hidden" name="csrf_token" value="<?php echo htmlspecialchars($_SESSION['csrf_token']); ?>">
             <input type="hidden" name="original_itemID" value="<?php echo htmlspecialchars($item['itemID']); ?>">
 
@@ -393,7 +384,7 @@ if (is_dir($imageDir)) {
             </div>
 
             <div class="form-row">
-            <div class="form-group">
+                <div class="form-group">
                     <label for="color">Color: <span class="required">*</span></label>
                     <select id="color" name="color" required>
                         <option value="">Select Color</option>
@@ -408,7 +399,7 @@ if (is_dir($imageDir)) {
                         <option value="Brown" <?php echo ($item['color'] === 'Brown') ? 'selected' : ''; ?>>Brown</option>
                         <option value="Black" <?php echo ($item['color'] === 'Black') ? 'selected' : ''; ?>>Black</option>
                         <option value="White" <?php echo ($item['color'] === 'White') ? 'selected' : ''; ?>>White</option>
-                        <option value="Grey" <?php echo ($item['color'] === 'Grey') ? 'selected' : ''; ?>>Grey</option>
+                        <option value="Gray" <?php echo ($item['color'] === 'Gray') ? 'selected' : ''; ?>>Gray</option>
                         <option value="Multi-color" <?php echo ($item['color'] === 'Multi-color') ? 'selected' : ''; ?>>Multi-color</option>
                     </select>
                 </div>
@@ -455,6 +446,7 @@ if (is_dir($imageDir)) {
                 </div>
             </div>
 
+            <!-- IMAGES SECTION INSIDE THE SAME FORM -->
             <div class="images-section">
                 <h3>Item Images</h3>
                 <?php if (!empty($existingImages)): ?>
@@ -477,30 +469,23 @@ if (is_dir($imageDir)) {
                     </div>
                 <?php endif; ?>
 
-                <!-- Image Upload Section -->
-                <div class="upload-section">
-                    <h4>Upload New Images</h4>
-                    <form action="upload_image.php" method="POST" enctype="multipart/form-data">
-                        <input type="hidden" name="csrf_token" value="<?php echo htmlspecialchars($_SESSION['csrf_token']); ?>">
-                        <input type="hidden" name="itemID" value="<?php echo htmlspecialchars($itemID); ?>">
-                        
-                        <div class="file-upload-area" id="dropArea">
-                            <p>Click to browse or drag and drop images here</p>
-                            <input type="file" id="itemImages" name="itemImages[]" accept="image/png,image/jpeg,image/jpg" multiple style="display: none;">
-                            <p class="help-text">Upload up to 5 images (PNG or JPG)</p>
-                        </div>
-                        <div id="file-list"></div>
-                        
-                        <button type="submit" class="btn btn-upload" style="margin-top: 1rem; background: #28a745; color: white; padding: 0.75rem 1.5rem; border: none; border-radius: 8px; cursor: pointer; font-weight: 600;">Upload Images</button>
-                    </form>
+                <h4 style="margin-top: 1.5rem;">Upload New Images</h4>
+                <div class="file-upload-area" id="dropArea">
+                    <p>Click to browse or drag and drop images here</p>
+                    <input type="file" id="itemImages" name="itemImages[]" accept="image/png,image/jpeg,image/jpg" multiple style="display: none;">
+                    <p class="help-text">Upload up to 5 images (PNG or JPG)</p>
                 </div>
+                <div id="file-list"></div>
             </div>
 
+            <!-- SAVE CHANGES AND CANCEL BUTTONS AT THE BOTTOM -->
             <div class="button-group">
                 <button type="submit" class="btn btn-primary">Save Changes</button>
                 <a href="../closet.php" class="btn btn-secondary">Cancel</a>
             </div>
         </form>
+        <!-- END OF SINGLE FORM -->
+
     </div>
 
     <?php echo $footer->render(); ?>

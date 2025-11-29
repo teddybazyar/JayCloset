@@ -256,7 +256,7 @@ $footer = new Footer("Jay's Closet - Add Item");
                         <option value="Brown">Brown</option>
                         <option value="Black">Black</option>
                         <option value="White">White</option>
-                        <option value="Grey">Grey</option>
+                        <option value="Gray">Gray</option>
                         <option value="Multi-color">Multi-color</option>
                     </select>
                 </div>

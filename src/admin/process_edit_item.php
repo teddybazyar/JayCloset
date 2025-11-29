@@ -69,7 +69,65 @@ $updateParams = [
 
 try {
     jayclosetdb::executeSQL($updateSql, $updateParams);
-    $_SESSION['success_message'] = "Item updated successfully!";
+    
+    // Handle image uploads if any
+    $uploadedCount = 0;
+    if (isset($_FILES['itemImages']) && !empty($_FILES['itemImages']['name'][0])) {
+        $uploadDir = "../../images/items/" . $originalItemID . "/";
+        
+        // Create directory if it doesn't exist
+        if (!is_dir($uploadDir)) {
+            mkdir($uploadDir, 0755, true);
+        }
+        
+        // Find the next available image number
+        $nextNum = 1;
+        for ($i = 1; $i <= 10; $i++) {
+            $checkPath = $uploadDir . $originalItemID . "-" . $i . ".png";
+            if (!file_exists($checkPath)) {
+                $nextNum = $i;
+                break;
+            }
+        }
+        
+        $totalFiles = count($_FILES['itemImages']['name']);
+        
+        for ($i = 0; $i < $totalFiles && $i < 5; $i++) {
+            if ($_FILES['itemImages']['error'][$i] === UPLOAD_ERR_OK) {
+                $tmpName = $_FILES['itemImages']['tmp_name'][$i];
+                $fileExtension = strtolower(pathinfo($_FILES['itemImages']['name'][$i], PATHINFO_EXTENSION));
+                
+                // Validate file type
+                if (in_array($fileExtension, ['jpg', 'jpeg', 'png'])) {
+                    $newFileName = $originalItemID . "-" . ($nextNum + $uploadedCount) . ".png";
+                    $destination = $uploadDir . $newFileName;
+                    
+                    // Convert to PNG if JPEG
+                    if (in_array($fileExtension, ['jpg', 'jpeg'])) {
+                        $image = @imagecreatefromjpeg($tmpName);
+                        if ($image) {
+                            if (imagepng($image, $destination)) {
+                                imagedestroy($image);
+                                $uploadedCount++;
+                            }
+                        }
+                    } else {
+                        if (move_uploaded_file($tmpName, $destination)) {
+                            $uploadedCount++;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    // Set success message based on what was updated
+    if ($uploadedCount > 0) {
+        $_SESSION['success_message'] = "Item updated successfully and " . $uploadedCount . " image(s) uploaded!";
+    } else {
+        $_SESSION['success_message'] = "Item updated successfully!";
+    }
+    
     header("Location: ../closet.php");
     exit;
     
