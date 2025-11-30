@@ -79,7 +79,7 @@ if (empty($_SESSION['csrf_token'])) {
         }
         ?>
         
-        <form action="/JayCloset/src/login/login.php" method="POST">
+        <form action="login/login.php" method="POST">
             <!-- CSRF Token -->
             <input type="hidden" name="csrf_token" value="<?php echo htmlspecialchars($_SESSION['csrf_token']); ?>">
             

@@ -166,7 +166,7 @@ if (empty($_SESSION['csrf_token'])) {
         <div class="container">
             <h2>Create an Account</h2>
             <div>
-                <form action="create.php" method="POST">
+                <form action="login/create.php" method="POST">
                     <!-- CSRF Token -->
                     <input type="hidden" name="csrf_token" value="<?php echo htmlspecialchars($_SESSION['csrf_token']); ?>">
                     
@@ -202,7 +202,7 @@ if (empty($_SESSION['csrf_token'])) {
                     <button type="submit">Create Account</button>
                 </form>
             </div>
-            <p>Already have an account? <a href="../index.php?page=login">Login here</a></p>
+            <p>Already have an account? <a href="index.php?page=login">Login here</a></p>
         </div>
     </main>
 </body>

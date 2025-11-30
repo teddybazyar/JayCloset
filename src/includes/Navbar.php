@@ -12,6 +12,8 @@
             'Home' => ['url' => 'index.php', 'icon' => 'fas fa-home'],
             'About' => ['url' => 'about.php', 'icon' => 'fas fa-info-circle'],
             'Closet' => ['url' => 'closet.php', 'icon' => 'fa fa-list'],
+            'Cart' => ['url' => 'cart_page.php', 'icon' => 'fas fa-shopping-cart'],
+            'Profile' => ['url' => 'profile.php', 'icon' => 'fas fa-user'],
             'Logout' => ['url' => 'login/logout.php', 'icon' => 'fas fa-sign-out-alt']
         ];
 
