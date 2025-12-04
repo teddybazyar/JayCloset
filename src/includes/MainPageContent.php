@@ -8,8 +8,8 @@ class MainPageContent{
             <div class="hero-section">
                 <div class="h1">
                     <h1>
-                        <i class="fas fa-star"></i> 
-                        Jay Closet is Coming Soon! 
+                        <i class="fas fa-star"></i>
+                        Welcome to Jay Closet!
                         <i class="fas fa-star"></i>
                     </h1>
                 </div>
@@ -18,7 +18,7 @@ class MainPageContent{
             <!-- Mission Statement -->
             <div class="mission-box">
                 <h3>
-                    <i class="fas fa-graduation-cap"></i> 
+                    <i class="fas fa-graduation-cap"></i>
                     Jay Closet is Elizabethtown College\'s Online Career Closet Website! If students are in need of business casual clothing, whether for an interview or a meet and greet, this website is the place to go. Students can create an account and reserve clothing in the library catalog.
                 </h3>
             </div>
@@ -32,11 +32,11 @@ class MainPageContent{
                     </div>
                     <div class="mySlides fade">
                         <div class="numbertext">2 / 3</div>
-                        <img src="/JayCloset/images/Teams&Logo/CCE.LOGO.horizontal1.png" alt="CCE Logo" style="width:100%">
+                        <img src="/JayCloset/images/Teams&Logo/ccce_logo.png" alt="CCE Logo" style="width:100%">
                     </div>
                     <div class="mySlides fade">
                         <div class="numbertext">3 / 3</div>
-                        <img src="/JayCloset/images/Teams&Logo/coming_soon_slideshow_icon.png" alt="Coming Soon" style="width:100%">
+                        <img src="/JayCloset/images/Teams&Logo/ecs_logo.png" alt="Coming Soon" style="width:100%">
                     </div>
                     
                     <a class="prev" onclick="plusSlides(-1)">
@@ -125,10 +125,9 @@ class MainPageContent{
                         Center for Community and Civic Engagement (CCCE) 
                         <br>
                         Located in BSC 247
-                        <br>
+                        <br><br>
                         Educate for Service. Engage with Purpose.
                     </strong>
-                    <br><br>
                     The Center for Community and Civic Engagement (CCCE)
                     strengthens Elizabethtown College\'s commitment to learning through service by
                     connecting education with meaningful action. 
@@ -140,7 +139,6 @@ class MainPageContent{
                         <i class="fas fa-award"></i> 
                         Recognized Commitment to Engagement
                     </strong>
-                    <br><br>
                     In 2020, Elizabethtown College earned the Carnegie Community Engagement Classification, 
                     a national honor recognizing the College\'s leadership in fostering mutually beneficial 
                     partnerships, civic learning, and community-prioritized initiatives through engaged teaching, scholarship, and service.
@@ -149,12 +147,11 @@ class MainPageContent{
                         <i class="fas fa-users"></i> 
                         Get Involved
                     </strong>
-                    <br><br>
                     Whether through community-based academic work, leadership pathways, 
                     or one-time projects, the CCCE offers all students meaningful 
                     opportunities to engage in partnership with communities, reflect 
-                    deeply, and grow as <strong>compassionate leaders</strong> prepared to advance 
-                    <strong>Elizabethtown College\'s mission</strong> and contribute to a more just and 
+                    deeply, and grow as <b>compassionate leaders</b> prepared to advance 
+                    <b>Elizabethtown College\'s mission</b> and contribute to a more just and 
                     engaged society.
                     <br><br>
                     <i class="fas fa-link"></i> 
