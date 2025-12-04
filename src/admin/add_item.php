@@ -231,7 +231,7 @@ $footer = new Footer("Jay's Closet - Add Item");
                 <label for="itemID">Item ID: <span class="required">*</span></label>
                 <input type="text" id="itemID" name="itemID" required maxlength="50" 
                        pattern="[A-Za-z0-9\-_]+" title="Letters, numbers, hyphens, and underscores only">
-                <p class="help-text">Unique identifier for this item (e.g., "SHIRT-001")</p>
+                <p class="help-text">Unique identifier for this item (e.g., "141")</p>
             </div>
 
             <div class="form-group">

@@ -25,6 +25,7 @@ if (!isset($_SESSION["LoginStatus"]) || $_SESSION["LoginStatus"] != "YES" || !is
 
 require_once "../includes/db_cred.php";
 require_once "../includes/jayclosetdb.php";
+require_once "../includes/image_helper.php";
 
 // CSRF Token Validation
 if (!isset($_POST['csrf_token']) || !isset($_SESSION['csrf_token']) || $_POST['csrf_token'] !== $_SESSION['csrf_token']) {
@@ -70,60 +71,27 @@ $updateParams = [
 try {
     jayclosetdb::executeSQL($updateSql, $updateParams);
     
-    // Handle image uploads if any
-    $uploadedCount = 0;
+    // Handle image uploads if any using helper function
     if (isset($_FILES['itemImages']) && !empty($_FILES['itemImages']['name'][0])) {
-        $uploadDir = "../../images/items/" . $originalItemID . "/";
+        // Get the next available image number
+        $nextNum = getNextImageNumber($originalItemID);
         
-        // Create directory if it doesn't exist
-        if (!is_dir($uploadDir)) {
-            mkdir($uploadDir, 0755, true);
-        }
+        // Process the images
+        $uploadResult = processItemImages($_FILES['itemImages'], $originalItemID, $nextNum, 5);
         
-        // Find the next available image number
-        $nextNum = 1;
-        for ($i = 1; $i <= 10; $i++) {
-            $checkPath = $uploadDir . $originalItemID . "-" . $i . ".png";
-            if (!file_exists($checkPath)) {
-                $nextNum = $i;
-                break;
+        if ($uploadResult['success'] > 0) {
+            $_SESSION['success_message'] = "Item updated successfully and " . $uploadResult['success'] . " image(s) uploaded!";
+            
+            // Add any errors to the message if some uploads failed
+            if (!empty($uploadResult['errors'])) {
+                $_SESSION['success_message'] .= " Note: " . implode(", ", $uploadResult['errors']);
+            }
+        } else {
+            $_SESSION['success_message'] = "Item updated successfully!";
+            if (!empty($uploadResult['errors'])) {
+                $_SESSION['success_message'] .= " Image upload errors: " . implode(", ", $uploadResult['errors']);
             }
         }
-        
-        $totalFiles = count($_FILES['itemImages']['name']);
-        
-        for ($i = 0; $i < $totalFiles && $i < 5; $i++) {
-            if ($_FILES['itemImages']['error'][$i] === UPLOAD_ERR_OK) {
-                $tmpName = $_FILES['itemImages']['tmp_name'][$i];
-                $fileExtension = strtolower(pathinfo($_FILES['itemImages']['name'][$i], PATHINFO_EXTENSION));
-                
-                // Validate file type
-                if (in_array($fileExtension, ['jpg', 'jpeg', 'png'])) {
-                    $newFileName = $originalItemID . "-" . ($nextNum + $uploadedCount) . ".png";
-                    $destination = $uploadDir . $newFileName;
-                    
-                    // Convert to PNG if JPEG
-                    if (in_array($fileExtension, ['jpg', 'jpeg'])) {
-                        $image = @imagecreatefromjpeg($tmpName);
-                        if ($image) {
-                            if (imagepng($image, $destination)) {
-                                imagedestroy($image);
-                                $uploadedCount++;
-                            }
-                        }
-                    } else {
-                        if (move_uploaded_file($tmpName, $destination)) {
-                            $uploadedCount++;
-                        }
-                    }
-                }
-            }
-        }
-    }
-    
-    // Set success message based on what was updated
-    if ($uploadedCount > 0) {
-        $_SESSION['success_message'] = "Item updated successfully and " . $uploadedCount . " image(s) uploaded!";
     } else {
         $_SESSION['success_message'] = "Item updated successfully!";
     }

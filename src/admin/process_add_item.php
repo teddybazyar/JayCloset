@@ -25,6 +25,7 @@ if (!isset($_SESSION["LoginStatus"]) || $_SESSION["LoginStatus"] != "YES" || !is
 
 require_once "../includes/db_cred.php";
 require_once "../includes/jayclosetdb.php";
+require_once "../includes/image_helper.php";
 
 // CSRF Token Validation
 if (!isset($_POST['csrf_token']) || !isset($_SESSION['csrf_token']) || $_POST['csrf_token'] !== $_SESSION['csrf_token']) {
@@ -81,52 +82,22 @@ $insertParams = [
 try {
     jayclosetdb::executeSQL($insertSql, $insertParams);
     
-    // Handle image uploads if any
+    // Handle image uploads if any using helper function
     if (isset($_FILES['itemImages']) && !empty($_FILES['itemImages']['name'][0])) {
-        $uploadDir = "../../images/items/" . $itemID . "/";
+        $uploadResult = processItemImages($_FILES['itemImages'], $itemID, 1, 5);
         
-        if (!is_dir($uploadDir)) {
-            if (!mkdir($uploadDir, 0755, true)) {
-                $_SESSION['error_message'] = "Failed to create image directory. Check folder permissions.";
-                header("Location: add_item.php");
-                exit;
+        if ($uploadResult['success'] > 0) {
+            $_SESSION['success_message'] = "Item added successfully with " . $uploadResult['success'] . " image(s)!";
+            
+            // Add any errors to the message if some uploads failed
+            if (!empty($uploadResult['errors'])) {
+                $_SESSION['success_message'] .= " Note: " . implode(", ", $uploadResult['errors']);
             }
-        }
-        
-        $uploadedCount = 0;
-        $totalFiles = count($_FILES['itemImages']['name']);
-        
-        for ($i = 0; $i < $totalFiles && $i < 5; $i++) {
-            if ($_FILES['itemImages']['error'][$i] === UPLOAD_ERR_OK) {
-                $tmpName = $_FILES['itemImages']['tmp_name'][$i];
-                $fileExtension = strtolower(pathinfo($_FILES['itemImages']['name'][$i], PATHINFO_EXTENSION));
-                
-                if (in_array($fileExtension, ['jpg', 'jpeg', 'png'])) {
-                    $imageNumber = $i + 1;
-                    $newFileName = $itemID . "-" . $imageNumber . ".png";
-                    $destination = $uploadDir . $newFileName;
-                    
-                    if (in_array($fileExtension, ['jpg', 'jpeg'])) {
-                        $image = @imagecreatefromjpeg($tmpName);
-                        if ($image) {
-                            if (imagepng($image, $destination)) {
-                                imagedestroy($image);
-                                $uploadedCount++;
-                            }
-                        }
-                    } else {
-                        if (move_uploaded_file($tmpName, $destination)) {
-                            $uploadedCount++;
-                        }
-                    }
-                }
-            }
-        }
-        
-        if ($uploadedCount > 0) {
-            $_SESSION['success_message'] = "Item added successfully with " . $uploadedCount . " image(s)!";
         } else {
             $_SESSION['success_message'] = "Item added successfully but images failed to upload. Please add images from the edit page.";
+            if (!empty($uploadResult['errors'])) {
+                $_SESSION['success_message'] .= " Errors: " . implode(", ", $uploadResult['errors']);
+            }
         }
     } else {
         $_SESSION['success_message'] = "Item added successfully! Add images from the edit page.";
