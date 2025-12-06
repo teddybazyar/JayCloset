@@ -25,7 +25,7 @@ if (!isset($_SESSION["LoginStatus"]) || $_SESSION["LoginStatus"] != "YES" || !is
 
 require_once "../includes/db_cred.php";
 require_once "../includes/jayclosetdb.php";
-require_once "../includes/image_helper.php";
+require_once "image_helper.php";
 
 // CSRF Token Validation
 if (!isset($_POST['csrf_token']) || !isset($_SESSION['csrf_token']) || $_POST['csrf_token'] !== $_SESSION['csrf_token']) {
