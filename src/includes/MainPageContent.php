@@ -22,6 +22,7 @@ class MainPageContent{
                     Jay Closet is Elizabethtown College\'s Online Career Closet Website! If students are in need of business casual clothing, whether for an interview or a meet and greet, this website is the place to go. Students can create an account and reserve clothing in the library catalog.
                 </h3>
             </div>
+            <br><br>
 
             <!-- Slideshow Section -->
             <div class="slideshow-section">
@@ -121,10 +122,11 @@ class MainPageContent{
             <div class="ccce-section">
                 <p>
                     <strong>
+                    <h1>
                         <i class="fas fa-hands-helping"></i> 
-                        Center for Community and Civic Engagement (CCCE) 
-                        <br>
-                        Located in BSC 247
+                            Center for Community and Civic Engagement (CCCE)
+                    </h1>
+                        Location: BSC 247
                         <br><br>
                         Educate for Service. Engage with Purpose.
                     </strong>

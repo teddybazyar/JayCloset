@@ -61,6 +61,7 @@ if ($result->num_rows > 0) {
         unset($_SESSION['last_attempt']);
         
         // Set session variables
+        $_
         $_SESSION["LoginStatus"] = "YES";
         $_SESSION["UserID"] = $user["ID"];
         $_SESSION["email"] = $user["email"];
